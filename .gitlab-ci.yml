@@ -13,7 +13,7 @@ stages:
 build:
   stage: build
   tags:
-    - ubuntu16.04
+    - linux
   script:
     - echo "Starting build testing:"
     - make
