@@ -11,9 +11,9 @@ stages:
 
 # Try to compile file
 build:
-  stage: build
-  tags:
-    - ubuntu16.04
-  script:
-    - echo "Starting build testing:"
-    - make
+	stage: build
+	tags:
+		- ubuntu16.04
+	script:
+		- echo "Starting build testing:"
+		- make
