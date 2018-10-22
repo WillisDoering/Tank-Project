@@ -1,9 +1,8 @@
-#AI LIST: AI <NAME> <STARTX> <STARTY> <IMAGES>
-AI SimpleAI 2 0 images/tank1_1.png images/tank1_2.png images/tank1_3.png images/tank1_4.png images/tank1_5.png images/tank1_6.png images/tank1_7.png images/tank1_8.png images/bullet1.png
-AI SimpleAI 14 8 images/tank2_1.png images/tank2_2.png images/tank2_3.png images/tank2_4.png images/tank2_5.png images/tank2_6.png images/tank2_7.png images/tank2_8.png images/bullet2.png
-#AI SimpleAI 14 2
-#AI SimpleAI 1 8
-#AI SimpleAI 13 8
+#AI LIST: AI <NAME> <STARTX> <STARTY>
+AI SimpleAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/bullet1.png
+AI SimpleAI 14 8 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/bullet1.png
+AI SimpleAI 0 8 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/bullet1.png
+AI SimpleAI 14 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/bullet1.png
 
 #FIELD CONFIGURATION
 WIDTH 15
@@ -12,7 +11,6 @@ HEIGHT 9
 #FIELDIMAGE <MAP FILE>
 FIELDIMAGE images/green.png
 
-#OBSTACLE <X> <Y>
 OBSTACLE 1 0
 OBSTACLE 5 7
 OBSTACLE 12 2
@@ -24,7 +22,6 @@ OBSTACLE 10 1
 OBSTACLE 8 3
 OBSTACLE 2 2
 OBSTACLE 5 5
-OBSTACLE 14 7
 OBSTACLE 4 2
 
 #OBSTACLE_IMAGE <IMAGE1> [<IMAGE2>]
@@ -37,6 +34,6 @@ OBSTACLE_IMAGE images/tree.png images/rock.png
 #HEALTH <STAT>
 #RANGE <STAT>
 DAMAGE 1
-HEALTH 3
+HEALTH 2
 RANGE 2
-
+SPECIAL 1
