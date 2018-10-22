@@ -1,8 +1,8 @@
 #ifndef __PONG_AI_H
 #define __PONG_AI_H
 
-#include "Actor.h"
-#include "direction.h"
+#include "src/Actor.h"
+#include "src/direction.h"
 #include <cmath>
 #include <iostream>
 
