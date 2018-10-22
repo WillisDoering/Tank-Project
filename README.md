@@ -1,6 +1,5 @@
 # Slackers_Platform
-
-    Continued development of Slackers_Platform from Team BeaverLackers
+Want instant communication with the Dev team? Join our [Discord Channel](https://discord.gg/VN7ZuWR)!
 
 ## Release 1.03
 ### What's New?
