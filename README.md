@@ -1,5 +1,11 @@
 # Slackers_Platform
-Want instant communication with the Dev team? Join our [Discord Channel](https://discord.gg/VN7ZuWR)!
+Want instant communication with the Dev team? Join our
+[Discord Channel](https://discord.gg/VN7ZuWR)!
+
+## Release 1.04
+### Whats New?
+- Added checks for tanks cheating and adding too many attributes points to their
+stats
 
 ## Release 1.03
 ### What's New?
