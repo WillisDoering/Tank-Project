@@ -13,13 +13,13 @@ LIB_PATH= libraries/
 TANKS = SimpleAI.so
 TANKS += PongAI.so
 
-TANKS_LINK = src/Actor.h #need to link in the base class for the .so to have everything.
+TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
 
 %.so: %.cpp
 	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INCS)
+#%.o: %.cpp
+#	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INCS)
 
 %.h.gch: %.h
 	$(CXX) -x c++-header -c $< -o $@ $(INCS) $(LIBS)
