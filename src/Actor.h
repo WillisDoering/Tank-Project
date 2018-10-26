@@ -19,8 +19,8 @@ protected:
     int id = 0;                 /*!< the id number of the actor */
 
 public:
-    Actor();
-    virtual ~Actor();
+    //Actor();
+    virtual ~Actor()=0;
 
     /**
      * calculates a move, and returns the data describing its move

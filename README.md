@@ -2,6 +2,12 @@
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
 
+## Release 2.02
+### Fixes
+- Problem with freshly made tanks not being able to find the constructor
+- The game will display a message to console and exit when no config file is found
+- Changed development pipeline to push to a pre-release branch before merging with master release
+
 ## Release 2.01
 ### What needs to change:
 - All config.txt files will need to be updated with new image files.  The format is now:
