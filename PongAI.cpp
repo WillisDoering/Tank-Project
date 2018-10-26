@@ -8,6 +8,7 @@ PongAI::PongAI(void)
 
 PongAI::~PongAI(void)
 {
+    printf("Deleting PongAI\n");
     // Intentionally Left Empty
 }
 
@@ -50,7 +51,7 @@ attributes PongAI::setAttribute(int pointsAvailable)
 {
     attributes retval;
 
-    retval.tankRange = pointsAvailable;
+    retval.tankAP = pointsAvailable;
 
     return retval;
 }

@@ -1,0 +1,15 @@
+30
+13
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+T     O                   O  O
+O  OOOO  OOOOOOOOOOOOOOO  O  O
+O        O                O  O
+O  OOOOOOO  OOOOOOOOOOOOOOO  O
+O     O     O    O     O     O
+OOOOOOO  OOOO O  O  O  O  OOOO
+O     O  O    O  O  O  O     O
+O  O  O  O  OOO  O  O  OOOO  O
+O  O  O       O     O  O     O
+O  OOOOOOOOOO OOOOOOO  O  O  O
+O                   O     O  T
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO

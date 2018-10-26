@@ -2,7 +2,7 @@
 #include <iostream>
 
 SimpleAI::SimpleAI() {}
-SimpleAI::~SimpleAI() {}
+SimpleAI::~SimpleAI() {printf("Deleting SimpleAI\n");}
 
 /**
  * @author David Donahue
@@ -146,7 +146,7 @@ attributes SimpleAI::setAttribute(int pointsAvailable)
 {
    attributes tankAttributes;
 
-   tankAttributes.tankHealth = 100000000;
+   tankAttributes.tankHealth += pointsAvailable;
 
    return tankAttributes;
 }

@@ -1,0 +1,20 @@
+30
+18
+  O  O     O     O  O     O   
+                   O O        
+  O OO           O    O    O  
+    TO          O       T     
+   OOO      O  O        O  O  
+ O           O       O O      
+      O  O  O  O           O  
+    O            O    O  O    
+  O O  O   O       O        O 
+      O O  O  O O O O     O   
+    O  O   O      O        O  
+  O         O  OOOOOO         
+     O  O  O O  O  O  O     O 
+O                       O     
+  OOOOOOOO             O O O  
+    T     O           O T     
+  O O      O           O O    
+    O O      O   O            

@@ -1,0 +1,17 @@
+25
+15
+        OOOOOO           
+       O  OO  O       T  
+      OOOOOOOOOO         
+                         
+                         
+    O     O     O     O  
+  OOOOO OOOOO OOOOO OOOOO
+  O O O O O O O O O O O O
+                         
+                         
+   O     O     O     O   
+  OOO   OOO   OOO   OOO  
+  OOO   OOO   OOO   OOO  
+   T                     
+                         
