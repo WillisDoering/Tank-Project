@@ -2,9 +2,10 @@
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
 
-## Release 2.02
+## Release 2.02(a)
 ### Fixes
 - Problem with freshly made tanks not being able to find the constructor
+  -Fixed a problem with the tanks not being able to find the destructor after they found constructor
 - The game will display a message to console and exit when no config file is found
 - Changed development pipeline to push to a pre-release branch before merging with master release
 
