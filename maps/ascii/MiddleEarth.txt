@@ -1,0 +1,17 @@
+25
+15
+xxxxxxxOxxxOxxxOxxxxxxxx
+xOOxxxxOxOxOxxxOxxxTxOOx
+xOxOxOxOxOxOxxxOxxxxxOOx
+xOxOxOxOxOxOxxxxxxxxxxxx
+xOTxxOxOxOxxxxxOOxOOOOOO
+xOOOOOxOxOxOxxxxxxxxxxxx
+xxxOxxxxxOxOxxxxxxxxxxxx
+xOxOxOxOxOxxOxxxxxxxxxxx
+xOxOxOxOxxOxxOxxxxxxxxxx
+xOxOxOxxOxxOxxOxxxxxxxxx
+xOxxxOxxxOxxOxxxxxxxxxxx
+xOxOxxxOxxOxxOxxOxxxxxxx
+xxTOOOOOOOOxOxOxxOxxxTxx
+xOOxxxxxxxxxxxxOxxOxxxxx
+xxxxxxOOOOOOOOxxxxxxxxxx
