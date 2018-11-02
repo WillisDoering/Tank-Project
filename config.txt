@@ -1,0 +1,62 @@
+#AI LIST: AI <NAME> <STARTX> <STARTY>
+AI SimpleAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
+AI SimpleAI 0 8 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
+AI SimpleAI 8 8 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
+AI SimpleAI 8 0 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
+
+#AI IDLE SPEED: AI_SPEED <750>
+AI_SPEED 750
+
+#FIELD CONFIGURATION
+#WIDTH 9
+#HEIGHT 9
+
+#FIELDIMAGE <MAP FILE>
+FIELDIMAGE images/green.png
+WIDTH 15
+HEIGHT 9
+OBSTACLE 4 1
+OBSTACLE 5 1
+OBSTACLE 6 1
+OBSTACLE 7 1
+OBSTACLE 8 1
+OBSTACLE 9 1
+OBSTACLE 10 1
+OBSTACLE 4 2
+OBSTACLE 10 2
+OBSTACLE 4 3
+OBSTACLE 6 3
+OBSTACLE 7 3
+OBSTACLE 8 3
+OBSTACLE 5 4
+OBSTACLE 6 4
+OBSTACLE 7 4
+OBSTACLE 8 4
+OBSTACLE 9 4
+OBSTACLE 4 5
+OBSTACLE 6 5
+OBSTACLE 7 5
+OBSTACLE 8 5
+OBSTACLE 10 5
+OBSTACLE 10 6
+OBSTACLE 4 7
+OBSTACLE 5 7
+OBSTACLE 6 7
+OBSTACLE 7 7
+OBSTACLE 8 7
+OBSTACLE 9 7
+OBSTACLE 10 7
+
+
+#OBSTACLE_IMAGE <IMAGE1> [<IMAGE2>]
+OBSTACLE_IMAGE images/tree/tree.png images/rock/rock.png
+
+#TANK RULES
+#DAMAGE <STAT>
+#HEALTH <STAT>
+#RANGE <STAT>
+DAMAGE 1
+HEALTH 2
+RADAR 10
+AP 5
+SPECIAL 1
