@@ -2,6 +2,9 @@
 #define __WAVE_FRONT_AI_H
 
 #include "src/Actor.h"
+#include "src/direction.h"
+#include "src/MapData.h"
+#include "src/PositionData.h"
 
 class WaveFrontAI : public Actor
 {
@@ -26,7 +29,7 @@ public:
     virtual int spendAP(MapData map, PositionData status);
 
     //generates a wavefront map for pathfinding
-    std::vector<int> waveFront (MapData map, int tx, int ty);
+    void waveFront (std::vector<int> &distVect, MapData map, int tx, int ty, int d = 0);
 
     WaveFrontAI();
     ~WaveFrontAI();

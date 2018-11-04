@@ -1,12 +1,16 @@
 CXX = g++
 CXXFLAGS = -g -std=c++11 -DTESTING -fPIC
-INCS = -I../../src/ 
+INCS = -I../src/  -L../libraries
 
-LIBS = -ldl
+LIBS = -ldl -lCTF -lGLU -lGL -lglut -lSOIL -lpthread
 
 
 TEST_FILES = main.o
 TEST_FILES += WaveFrontAITests.o
+
+FILES = ../WaveFrontAI.o
+#FILES += ../libraries/MapData.o
+FILES += ../src/Actor.o
 
 
 %.o : %.cpp
