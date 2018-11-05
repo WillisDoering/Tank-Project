@@ -5,6 +5,7 @@
 #include "src/direction.h"
 #include "src/MapData.h"
 #include "src/PositionData.h"
+#include <iostream>
 
 class WaveFrontAI : public Actor
 {

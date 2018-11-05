@@ -12,8 +12,9 @@ LIB_PATH= libraries/
 
 TANKS = SimpleAI.so
 TANKS += PongAI.so
+TANKS += WaveFrontAI.so
 
-TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
+TANKS_LINK = src/Actor.o src/MapData.o #need to link in the base class for the .so to have everything.
 
 %.so: %.cpp
 	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS)
@@ -23,10 +24,10 @@ TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have eve
 
 %.h.gch: %.h
 	$(CXX) -x c++-header -c $< -o $@ $(INCS) $(LIBS)
-	
+
 %.txt:
 	cp config.sample config.txt
-	
+
 config:	config.txt tanks
 
 tanks:	$(TANKS)
