@@ -2,8 +2,8 @@ CXX = g++
 CXXFLAGS = -g -std=c++11 -fPIC
 INCS = -Isrc/
 LIBS = -ldl
-LIBS += -lglut -lGL -lGLU -lpthread
-LIBS += -lSOIL -Llibraries
+#LIBS += -lglut -lGL -lGLU -lpthread
+LIBS += -lCTF -Llibraries
 SOFLAGS = -DDYNAMIC
 
 SRC_PATH= src/
@@ -16,10 +16,7 @@ TANKS += PongAI.so
 TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
 
 %.so: %.cpp
-	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS)
-
-#%.o: %.cpp
-#	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INCS)
+	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS) $(LIBS)
 
 %.h.gch: %.h
 	$(CXX) -x c++-header -c $< -o $@ $(INCS) $(LIBS)
@@ -35,4 +32,3 @@ tanks:	$(TANKS)
 
 cleanTanks:
 	rm -rf $(TANK_PATH)
-
