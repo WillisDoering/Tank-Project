@@ -32,7 +32,9 @@ direction SimpleAI::move(MapData map, PositionData status)
                 {
                     if (status.game_x > x)
                     {
-                        if(!map.obstacleMap[status.game_x - 1 + status.game_y * map.width]) //check for obstacle
+                        if(!map.obstacleMap[status.game_x - 1 + status.game_y * map.width] ||  //check for obstacle
+                        map.obstacleMap[status.game_x - 1 + status.game_y * map.width] == 'T' ||
+                        map.obstacleMap[status.game_x - 1 + status.game_y * map.width] == 'B' )
                         {
                             ret = LEFT;
                         }
@@ -43,7 +45,9 @@ direction SimpleAI::move(MapData map, PositionData status)
                     }
                     else
                     {
-                        if(!map.obstacleMap[status.game_x + 1 + status.game_y * map.width]) //check for obstacle
+                        if(!map.obstacleMap[status.game_x + 1 + status.game_y * map.width] || //check for obstacle
+                        map.obstacleMap[status.game_x + 1 + status.game_y * map.width] == 'T' ||
+                        map.obstacleMap[status.game_x + 1 + status.game_y * map.width] == 'B' )
                         {
                             ret = RIGHT;
                         }
@@ -58,7 +62,9 @@ direction SimpleAI::move(MapData map, PositionData status)
                 {
                     if (status.game_y > y)
                     {
-                        if(!map.obstacleMap[status.game_x + (status.game_y - 1)*map.width]) //check for obstacle
+                        if(!map.obstacleMap[status.game_x + (status.game_y - 1)*map.width] || //check for obstacle
+                        map.obstacleMap[status.game_x + (status.game_y - 1)*map.width] == 'T' ||
+                        map.obstacleMap[status.game_x + (status.game_y - 1)*map.width] == 'B' )
                         {
                             ret = UP;
                         }
@@ -69,7 +75,9 @@ direction SimpleAI::move(MapData map, PositionData status)
                     }
                     else
                     {
-                        if(!map.obstacleMap[status.game_x + (status.game_y + 1)*map.width]) //check for obstacle
+                        if(!map.obstacleMap[status.game_x + (status.game_y + 1)*map.width] || //check for obstacle
+                        map.obstacleMap[status.game_x + (status.game_y + 1)*map.width] == 'T' || 
+                        map.obstacleMap[status.game_x + (status.game_y + 1)*map.width] == 'B' )
                         {
                             ret = DOWN;
                         }
@@ -88,7 +96,7 @@ direction SimpleAI::move(MapData map, PositionData status)
 /**
  * @author David Donahue
  * @par Description: 
- * Calculates how many moves it will take to reach a given coordinate
+ * Calculates whether or not not too attack, and if so where to attack
  * @param[in] map - The current state of the playfield
  * @param[in] status - The AI's tank's location, health and ID
  * @return Location to attack and whether to attack
