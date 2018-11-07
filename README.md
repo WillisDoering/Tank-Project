@@ -1,6 +1,9 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+
+
+Helpful Hint: The platform is toughly documented in the Repo's Wiki. The wiki provides lots of helpful 'how to' documents that will guide the user through Setup, Running the platform, and Creating your very own tank.
 ## Release 3.03
 ### What's new?
 - Object health
