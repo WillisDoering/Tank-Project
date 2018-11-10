@@ -19,7 +19,7 @@ protected:
     int id = 0;                 /*!< the id number of the actor */
 
 public:
-    //Actor();
+    //Actor(){};
     virtual ~Actor()=0;
 
     /**
@@ -32,13 +32,13 @@ public:
      * calculates an attack and returns the data describing its attack
      * @return Attack data the desired attack to be made, if possible the gamefield will do the move
      */
-    virtual direction  attack(MapData map, PositionData status) = 0;
+    virtual direction attack(MapData map, PositionData status) = 0;
 
     /**
      *  sets the attributes of the tank
      *  @return attributeStruct to set tanks attribute
      */
-    virtual attributes setAttribute(int pointsAvailable) = 0;
+    virtual attributes setAttribute(int pointsAvailable, attributes baseStats) = 0;
 
     /**
      *  Decides wether to move or attack given how many AP remain 

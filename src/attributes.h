@@ -7,6 +7,7 @@ struct attributes
     int tankDamage;
     int tankAP;
     int tankShots;
+    int tankAmmo;
     int tankRadar;
 
     attributes( int tH, int tD, int tR, int tS, int tV ) : tankHealth(tH), 
