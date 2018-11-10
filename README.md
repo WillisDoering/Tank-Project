@@ -1,10 +1,47 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+## Release 4.00
+## What's new?
+- Updated Scoreboard
+  - The scoreboard now lists more interesting facts about the tanks and has support for a draw.
+- Reloading
+  - Tanks now have a limited number of ammunition.  After they reach the limit they will have to reload.
+  - A tank can reload by sending back action number 4 or the tank will automatically reload if it has no ammo and it attempts to fire.
+- Water
+  - New title type added that cannot be passed by tanks.  Projectiles on the other hand of no problem flying above the water.
+- Health Map
+  - When a tank is sent a map object there is now an additional map called the health map.  It will list the health of all the objects the tank can see.
+- Attributes
+  - Tanks now recieve a copy of there base stats when asked for their choice of special point spending.
+- MaxTurns
+  - The number of max turns can now be set in the config file.
+- New formula for calculating field size display.
+- Behind the scene caps for special points when dealing with a large special amount 
 
+## Fixed
+- Damage 
+  - Fixed some inconsistencies between tank and projectile damages.
+- SimpleAI
+  - SimpleAI will now move even when it can't see the whole map.
+  - Fixed incorrect header prototype.
 
-Helpful Hint: The platform is thoroughly documented in the Repo's Wiki. The wiki provides lots of helpful 'how to' documents that will guide the user through Setup, Running the platform, and Creating your very own tank.
-## Release 3.03
+## Release 3.10
+## What's new?
+- Scoreboard
+  - At the end of the game a list of the top 3 players will be displayed.
+- Crate_o_Fun
+  - A new crate was added that has a surprise for anyone that shoots it.
+- Tanks
+  - Additional tank colors have been added to the map.
+- Maps
+  - All maps have been updated with destructible objects so that they can now be 
+- Default Map
+  - The default map has been updated to support up to 10 Tanks.
+- SimpleAI
+  - Adjusted SimpleAI so that it will no longer refuse to play the game if it can't see.
+
+## Release 3.01
 ### What's new?
 - Object health
 	- If you arn't a fan of the new objects, now you can do something about it.  Trees and rocks can both be destroyed with enough projectile hits.
@@ -23,8 +60,6 @@ Helpful Hint: The platform is thoroughly documented in the Repo's Wiki. The wiki
 	- The makefile was updated to allow the use of the structres found in the header files found in the src directory.  This means you can make your own mapData structure to save data instead of relying soley on the one provided each turn.
 - Results.txt
 	- The results.txt will now be created on a first run of the platform.  It will log all the players added to the map, and the winner of the game.  And append to the file if it exists.
--Explosions
-  - Ever wondered if your projectile hit?  Now you don't have to.
 
 ### Fixes
 - Fixed a bug where dead actors were causing a delay in turn processing.

@@ -2,7 +2,6 @@ CXX = g++
 CXXFLAGS = -g -std=c++11 -fPIC
 INCS = -Isrc/
 LIBS = -ldl
-#LIBS += -lglut -lGL -lGLU -lpthread
 LIBS += -lCTF -Llibraries
 SOFLAGS = -DDYNAMIC
 

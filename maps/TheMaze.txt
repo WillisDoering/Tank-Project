@@ -1,16 +1,16 @@
 WIDTH 30
 HEIGHT 13
 MAP
- OOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-      O                   O  O
-O  OOOO  OOOOOOOOOOOOOOO  O  O
-O        O                O  O
-O  OOOOOOO  OOOOOOOOOOOOOOO  O
-O     O     O    O     O     O
-OOOOOOO  OOOO O  O  O  O  OOOO
-O     O  O    O  O  O  O     O
-O  O  O  O  OOO  O  O  OOOO  O
-O  O  O       O     O  O     O
-O  OOOOOOOOOO OOOOOOO  O  O  O
-O                   O     O
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+xRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+xxxxxxRxxxxxxxxxxxxxxxxxxxRxxR
+RxxRRRRxxRRRRRRRRRRRRRRRxxRxxR
+RxxBxBxxxRxxxxxxxBxxxxxxxxRBBR
+RTxRRRRRRRxxRRRRRRRRRRRRRRRxxR
+RxxxxxRxxBxxRxxxxRxxBxxRxxxxxR
+RRRRRRRxxRRRRxRxxRxxRxxRxxRRRR
+RxxxxxRxxRxxxxRxxRxxRxxRxxxxxR
+RxTRxxRxxRxxRRRxxRxxRxxRRRRxxR
+RxxRxxRxxxxxxxRxxxxxRTxRxxxBxR
+RxTRRRRRRRRRRxRRRRRRRxxRxxRxxR
+RxxxxxxxxxxxxxxxxxxxRxxxxxRxxx
+RRRRRRRRRRRRRRRRRRRRRRRRRRRRRx
