@@ -1,6 +1,19 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+## Release 4.01
+## Fixed
+- Range now properly scales the distance a projectile can travel. Previously, they were stuck at 6.
+- baseStats are now properly passed to tanks during setAttributes.  Previously, a freshly initalized variable was passed resulting in all 0's.
+- Default values have been set:
+  - Health = 3   - The amount of health a tank starts with
+  - Damage = 1   - The amount of damage a tank's projectile does
+  - AP = 2       - The amount of Action points a tank starts with.
+  - Ammo = 6     - The amount of ammo a tank starts with before needing to reload
+  - Radar = 4    - How far a tanks Radar expands to
+  - Range = 4    - How many spaces a projectile travels per turn
+  - Shots = 0    - This is a counter, no matter how many points you put here, it will stay 0.
+- Reduced size of program. 
 ## Release 4.00
 ## What's new?
 - Updated Scoreboard
