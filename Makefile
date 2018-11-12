@@ -1,3 +1,4 @@
+
 CXX = g++
 CXXFLAGS = -g -std=c++11 -fPIC
 INCS = -Isrc/
@@ -14,7 +15,7 @@ TANKS = SimpleAI.so
 TANKS += PongAI.so
 TANKS += WaveFrontAI.so
 
-TANKS_LINK = src/Actor.o src/MapData.o #need to link in the base class for the .so to have everything.
+TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
 
 %.so: %.cpp
 	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS)
