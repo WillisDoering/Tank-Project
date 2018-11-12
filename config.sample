@@ -14,11 +14,12 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxRxxxxxRxxxxxRxxxxWRxxxxxxxx
 xxTTTxxxTTTxxxTTTWWWTTTxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #AI LIST: AI <NAME> <STARTX> <STARTY>
 AI SimpleAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
 AI SimpleAI 15 0 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
-AI SimpleAI 19 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
+AI SimpleAI 29 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
 AI SimpleAI 8 7 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
 
 AI SimpleAI 20 7 images/BlackWhite/tankBW_U.png images/BlackWhite/tankBW_R.png images/BlackWhite/tankBW_D.png images/BlackWhite/tankBW_L.png images/BlackWhite/bulletBW.png
@@ -44,11 +45,12 @@ WATER_IMAGE images/Water/waterTex.png images/Water/waterTexNS.png images/Water/w
 
 
 #TANK RULES
-#DAMAGE <STAT>
-#HEALTH <STAT>
-#RANGE <STAT>
+#STAT <AMMOUNT>
+#VALID STATS: DAMAGE, HEALTH, RADAR, AP, SPECIAL, RANGE, AMMO
 DAMAGE 1
 HEALTH 3
 RADAR 4 
-AP 4
+AP 1
 SPECIAL 1
+RANGE 4
+AMMO 6
