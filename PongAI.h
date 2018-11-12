@@ -27,7 +27,7 @@ public:
     virtual direction attack(MapData map, PositionData status);
 
     // The Overwritten set attribute  function.
-    virtual attributes setAttribute(int pointsAvailable);
+    virtual attributes setAttribute(int pointsAvailable, attributes baseStats);
 
     // The Overwritten spendAP  function.
     virtual int spendAP(MapData map, PositionData status);

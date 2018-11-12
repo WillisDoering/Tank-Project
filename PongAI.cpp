@@ -8,7 +8,6 @@ PongAI::PongAI(void)
 
 PongAI::~PongAI(void)
 {
-    printf("Deleting PongAI\n");
     // Intentionally Left Empty
 }
 
@@ -47,7 +46,7 @@ direction PongAI::attack(MapData map, PositionData status)
     return retval;
 }
 
-attributes PongAI::setAttribute(int pointsAvailable)
+attributes PongAI::setAttribute(int pointsAvailable, attributes baseStats)
 {
     attributes retval;
 

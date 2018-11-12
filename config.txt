@@ -1,62 +1,54 @@
+WIDTH 30
+HEIGHT 14
+MAP
+xxxxxxxxRRRRRRxxxxxxxxRRRRRRxx
+xxxxxxxTWWRRWWTxxxxxxTWWRRWWTx
+xxxxxxTTTBTTTBTTxxxxTTTBTTTBTT
+xxxxxCxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxB
+xxxxTxxxxxTxxxxxTxxxxxTxxxxBBT
+xxTTBTTxTTBTTxTTBTTxTTBTTxxTTB
+xxRxRxRxRxRxRxRxRxRxRxRxRxxRxR
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxRxxxxxRxxxxxRxxxxWRxxxxxxxx
+xxTTTxxxTTTxxxTTTWWWTTTxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 #AI LIST: AI <NAME> <STARTX> <STARTY>
-AI WaveFrontAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
-#AI SimpleAI 0 8 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
-AI SimpleAI 14 6 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
-#AI SimpleAI 8 0 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
+AI SimpleAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
+AI SimpleAI 15 0 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
+AI SimpleAI 19 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
+AI SimpleAI 8 7 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
+
+AI SimpleAI 20 7 images/BlackWhite/tankBW_U.png images/BlackWhite/tankBW_R.png images/BlackWhite/tankBW_D.png images/BlackWhite/tankBW_L.png images/BlackWhite/bulletBW.png
+AI SimpleAI 28 7 images/Coral/tankC_U.png images/Coral/tankC_R.png images/Coral/tankC_D.png images/Coral/tankC_L.png images/Coral/bulletC.png
+AI SimpleAI 3 10 images/Lime/tankLi_U.png images/Lime/tankLi_R.png images/Lime/tankLi_D.png images/Lime/tankLi_L.png images/Lime/bulletLi.png
+AI SimpleAI 12 10 images/Purple/tankP_U.png images/Purple/tankP_R.png images/Purple/tankP_D.png images/Purple/tankP_L.png images/Purple/bulletP.png
+
+AI SimpleAI 22 10 images/SkyBlue/tankSB_U.png images/SkyBlue/tankSB_R.png images/SkyBlue/tankSB_D.png images/SkyBlue/tankSB_L.png images/SkyBlue/bulletSB.png
+AI SimpleAI 14 8 images/Tiger/tankTi_U.png images/Tiger/tankTi_R.png images/Tiger/tankTi_D.png images/Tiger/tankTi_L.png images/Tiger/bulletTi.png
 
 #AI IDLE SPEED: AI_SPEED <750>
 AI_SPEED 750
 
-#FIELD CONFIGURATION
-#WIDTH 9
-#HEIGHT 9
-
 #FIELDIMAGE <MAP FILE>
 FIELDIMAGE images/green.png
-WIDTH 15
-HEIGHT 9
-OBSTACLE 4 1
-OBSTACLE 5 1
-OBSTACLE 6 1
-OBSTACLE 7 1
-OBSTACLE 8 1
-OBSTACLE 9 1
-OBSTACLE 10 1
-OBSTACLE 4 2
-OBSTACLE 10 2
-OBSTACLE 4 3
-OBSTACLE 6 3
-OBSTACLE 7 3
-OBSTACLE 8 3
-OBSTACLE 5 4
-OBSTACLE 6 4
-OBSTACLE 7 4
-OBSTACLE 8 4
-OBSTACLE 9 4
-OBSTACLE 4 5
-OBSTACLE 6 5
-OBSTACLE 7 5
-OBSTACLE 8 5
-OBSTACLE 10 5
-OBSTACLE 10 6
-OBSTACLE 4 7
-OBSTACLE 5 7
-OBSTACLE 6 7
-OBSTACLE 7 7
-OBSTACLE 8 7
-OBSTACLE 9 7
-OBSTACLE 10 7
-
 
 #OBSTACLE_IMAGE <IMAGE1> [<IMAGE2>]
 OBSTACLE_IMAGE images/tree/tree.png images/rock/rock.png
+TREE_IMAGE images/tree/tree.png images/tree/treeb.png images/tree/treec.png images/tree/treed.png
+BUSH_IMAGE images/bush/bush1.png images/bush/bush2.png images/bush/bush3.png images/bush/bush4.png
+ROCK_IMAGE images/rock/rock.png images/rock/rockb.png images/rock/rockc.png
+WATER_IMAGE images/Water/waterTex.png images/Water/waterTexNS.png images/Water/waterTexES.png images/Water/waterTexSS.png images/Water/waterTexWS.png images/Water/waterTexNES.png images/Water/waterTexSES.png images/Water/waterTexSWS.png images/Water/waterTexNWS.png images/Water/waterTexEWS.png images/Water/waterTexNSS.png images/Water/waterTexNWES.png images/Water/waterTexNESS.png images/Water/waterTexSEWS.png images/Water/waterTexNWSS.png images/Water/waterTexPond.png
+
 
 #TANK RULES
 #DAMAGE <STAT>
 #HEALTH <STAT>
 #RANGE <STAT>
 DAMAGE 1
-HEALTH 2
-RADAR 20
-AP 5
-SPECIAL 100
+HEALTH 3
+RADAR 4 
+AP 4
+SPECIAL 1

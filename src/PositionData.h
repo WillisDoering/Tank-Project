@@ -18,15 +18,14 @@
 *******************************************************************************/
 struct PositionData
 {
-
-    std::string name; /*!<The name */
-    int id; /*!<The id number */
-    int health; /*!<The health */
-    int game_x; /*!<The x coordinate */
-    int game_y; /*!<The y coordinate */
-    int ap; /*!< remaining action points*/
-    PositionData() {}
-PositionData(int i, int h, int x, int y, int a) : id(i), health(h), game_x(x), game_y(y), ap(a) {}
-PositionData(int i, int h, int x, int y) : id(i), health(h), game_x(x), game_y(y), ap(2) {}
+  std::string name; /*!<The name */
+  int id; /*!<The id number */
+  int health; /*!<The health */
+  int game_x; /*!<The x coordinate */
+  int game_y; /*!<The y coordinate */
+  int ap; /*!< remaining action points*/
+  int ammo; /*!< Remaining Ammo chambered */
+  PositionData() {}
+  PositionData(int i, int h, int x, int y, int a = 2, int am = 0) : id(i), health(h), game_x(x), game_y(y), ap(a), ammo(am) {}
 };
 #endif //SLACKERS_PLATFORM_POSITIONDATA_H
