@@ -108,7 +108,7 @@ direction WaveFrontAI::attack(MapData map, PositionData status)
 
 }
 
-attributes WaveFrontAI::setAttribute(int pointsAvailable)
+attributes WaveFrontAI::setAttribute(int pointsAvailable, attributes baseStats)
 {
     return attributes (pointsAvailable/2, pointsAvailable - pointsAvailable/2, 0,0,0);
 }
