@@ -1,6 +1,9 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+## Release 4.01a
+## Changes
+- Removed unneeded files to decrease project size
 ## Release 4.01
 ## Fixed
 - Range now properly scales the distance a projectile can travel. Previously, they were stuck at 6.
