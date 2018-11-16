@@ -35,7 +35,9 @@ public:
      * @param[in] y2 - end point y coordinate
      * @return distance to the target
      */
-    attributes myStats;
+   
+    attributes myStats; 
+
     SimpleAI();
     ~SimpleAI();
 #endif

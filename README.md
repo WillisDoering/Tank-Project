@@ -1,9 +1,29 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
-## Release 4.01a
-## Changes
-- Removed unneeded files to decrease project size
+## Release 4.02
+## Fixed
+- Modified max radar range to be allowed up to map width.
+- Changed undestructible object sprite so it no longer looks like destructible objects
+- Fixed ramming algorithm.  If a tank has 1 health and they ram another tank they will die.  If a tank has more than 1 health and the ramming damage would kill them, there health is instead set to 1.
+- Added support for maps down to 5x5.  Sizes below 15x9 will fill in missing squares with unpassible objects.
+- Remove the tree hiding feature.  The hidden object implementation was unfinished before the feature freeze, but the hidding while in a tree made it through.  This has been corrected and removed.
+- Default images for tanks.  If a tank does not provide any images it will instead use a default set of images.
+- Default config file. If a config.txt file is not detected, the game will attempt to write a new one and prompt the user to add their tanks to the new configuration file.
+- Fixed problem generating libCTF properly.
+- Two additional testing tanks
+  - CamperAI
+    - Will attempt to move to a corner and fire randomly away from the walls.
+  - StationaryAI
+    - Will do absolutely nothing.
+- UI Refresh 3.0
+  - With the support for more tanksm the GUI was redrawn now to display the information for the tank whose turn it is including a small representation of the tank. 
+- New Configuration Options
+  - Added MAXTURNS option into the config file
+    - This will allow the user to override the default value set.
+  - Added DISABLUEGUI option into the config file
+    - While the OpenGL window will load, the game will not be constantly redrawn reducing overall game time.  During testing reduced average game time from 45s to 15s.
+
 ## Release 4.01
 ## Fixed
 - Range now properly scales the distance a projectile can travel. Previously, they were stuck at 6.

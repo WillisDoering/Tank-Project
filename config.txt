@@ -17,7 +17,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #AI LIST: AI <NAME> <STARTX> <STARTY> <UPIMAGE> <RIGHTIMAGE> <DOWNIMAGE> <LEFTIMAGE> <BULLETIMAGE>
-AI SimpleAI 0 0
+AI CamperAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
+
 AI SimpleAI 14 3 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
 AI SimpleAI 29 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
 AI SimpleAI 8 7 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
@@ -28,7 +29,7 @@ AI SimpleAI 3 10 images/Lime/tankLi_U.png images/Lime/tankLi_R.png images/Lime/t
 AI SimpleAI 12 10 images/Purple/tankP_U.png images/Purple/tankP_R.png images/Purple/tankP_D.png images/Purple/tankP_L.png images/Purple/bulletP.png
 
 AI SimpleAI 22 10 images/SkyBlue/tankSB_U.png images/SkyBlue/tankSB_R.png images/SkyBlue/tankSB_D.png images/SkyBlue/tankSB_L.png images/SkyBlue/bulletSB.png
-AI SimpleAI 14 8 images/Tiger/tankTi_U.png images/Tiger/tankTi_R.png images/Tiger/tankTi_D.png images/Tiger/tankTi_L.png images/Tiger/bulletTi.png
+AI StationaryAI 14 8 images/Tiger/tankTi_U.png images/Tiger/tankTi_R.png images/Tiger/tankTi_D.png images/Tiger/tankTi_L.png images/Tiger/bulletTi.png
 
 #AI IDLE SPEED: AI_SPEED <750>
 AI_SPEED 750
