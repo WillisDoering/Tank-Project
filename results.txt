@@ -1,1 +1,0 @@
-Players: CamperAI StationaryAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI Winner: Players: CamperAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI SimpleAI StationaryAI Winner: 
