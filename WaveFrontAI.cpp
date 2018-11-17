@@ -6,6 +6,7 @@
  */
 direction WaveFrontAI::move(MapData map, PositionData status)
 {
+    std::cout << map;
     std::vector<int> distVect;
     std::vector<int> alternateDist;
     for (int i = 0; i < map.width*map.height; ++i)
@@ -125,7 +126,7 @@ int WaveFrontAI::calcDist(int x1, int y1, int x2, int y2)
 }
 
 //generates a wavefront map for pathfinding
-void WaveFrontAI::waveFront (std::vector<int> &distVect, MapData map, int tx, int ty, int d)
+void WaveFrontAI::waveFront (std::vector<int> &distVect, MapData &map, int tx, int ty, int d)
 {
     int x, y;
     if (distVect.size() != map.width * map.height || (d == 0 && distVect.at(tx*ty) != 0)) //set up the vector

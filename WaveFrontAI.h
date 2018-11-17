@@ -30,7 +30,7 @@ public:
     virtual int spendAP(MapData map, PositionData status);
 
     //generates a wavefront map for pathfinding
-    void waveFront (std::vector<int> &distVect, MapData map, int tx, int ty, int d = 0);
+    void waveFront (std::vector<int> &distVect, MapData &map, int tx, int ty, int d = 0);
 
     WaveFrontAI();
     ~WaveFrontAI();
