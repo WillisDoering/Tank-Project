@@ -24,7 +24,7 @@ public:
      */
     virtual direction attack(MapData map, PositionData status);
 
-    virtual attributes setAttribute(int pointsAvailable);
+    virtual attributes setAttribute(int pointsAvailable, attributes baseStats);
 
     virtual int spendAP(MapData map, PositionData status);
     /**
@@ -35,6 +35,8 @@ public:
      * @param[in] y2 - end point y coordinate
      * @return distance to the target
      */
+   
+    attributes myStats; 
 
     SimpleAI();
     ~SimpleAI();
