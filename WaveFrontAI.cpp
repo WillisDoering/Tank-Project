@@ -6,7 +6,6 @@
  */
 direction WaveFrontAI::move(MapData map, PositionData status)
 {
-    std::cout << map;
     std::vector<int> distVect;
     std::vector<int> alternateDist;
     for (int i = 0; i < map.width*map.height; ++i)
