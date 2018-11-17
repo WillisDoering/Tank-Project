@@ -9,16 +9,17 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxB
 xxxxTxxxxxTxxxxxTxxxxxTxxxxBBT
 xxTTBTTxTTBTTxTTBTTxTTBTTxxTTB
 xxRxRxRxRxRxRxRxRxRxRxRxRxxRxR
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxRxxxxxRxxxxxRxxxxWRxxxxxxxx
+Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+OxxRxxxxxRxxxxxRxxxxWRxxxxxxxx
 xxTTTxxxTTTxxxTTTWWWTTTxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-#AI LIST: AI <NAME> <STARTX> <STARTY>
-AI SimpleAI 0 0 images/Yellow/tankY_U.png images/Yellow/tankY_R.png images/Yellow/tankY_D.png images/Yellow/tankY_L.png images/Yellow/bulletY.png
-AI SimpleAI 15 0 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
-AI SimpleAI 19 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
+#AI LIST: AI <NAME> <STARTX> <STARTY> <UPIMAGE> <RIGHTIMAGE> <DOWNIMAGE> <LEFTIMAGE> <BULLETIMAGE>
+AI SimpleAI 0 0
+AI SimpleAI 14 3 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
+AI SimpleAI 29 0 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
 AI SimpleAI 8 7 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
 
 AI SimpleAI 20 7 images/BlackWhite/tankBW_U.png images/BlackWhite/tankBW_R.png images/BlackWhite/tankBW_D.png images/BlackWhite/tankBW_L.png images/BlackWhite/bulletBW.png
@@ -42,13 +43,20 @@ BUSH_IMAGE images/bush/bush1.png images/bush/bush2.png images/bush/bush3.png ima
 ROCK_IMAGE images/rock/rock.png images/rock/rockb.png images/rock/rockc.png
 WATER_IMAGE images/Water/waterTex.png images/Water/waterTexNS.png images/Water/waterTexES.png images/Water/waterTexSS.png images/Water/waterTexWS.png images/Water/waterTexNES.png images/Water/waterTexSES.png images/Water/waterTexSWS.png images/Water/waterTexNWS.png images/Water/waterTexEWS.png images/Water/waterTexNSS.png images/Water/waterTexNWES.png images/Water/waterTexNESS.png images/Water/waterTexSEWS.png images/Water/waterTexNWSS.png images/Water/waterTexPond.png
 
+#Max Turns
+#MAXTURNS 200
+MAXTURNS 200
 
 #TANK RULES
-#DAMAGE <STAT>
-#HEALTH <STAT>
-#RANGE <STAT>
+#STAT <AMMOUNT>
+#VALID STATS: DAMAGE, HEALTH, RADAR, AP, SPECIAL, RANGE, AMMO
 DAMAGE 1
 HEALTH 3
 RADAR 4 
-AP 4
+AP 2
 SPECIAL 1
+RANGE 4
+AMMO 6
+
+#DISABLEGUI Disables GUI
+#DISABLEGUI
