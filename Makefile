@@ -30,4 +30,4 @@ tanks:	$(TANKS)
 	mv $^ $(TANK_PATH)
 
 cleanTanks:
-	rm -rf $(TANKS:%.so=tanks/%.so)
+	rm -rf $(TANK_PATH)
