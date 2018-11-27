@@ -1,6 +1,93 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+## Release 6.00
+## Fixes
+  - Fixed projectiles turning into torpedos
+  - Prevented rocks from regrowing on top of tanks
+## Changes
+  - Changed the default settings for the animation configuration.  The lower the number the faster the actor will move.  
+## Balancing
+- New Min and Max stat values:
+             min       max      setAttribute
+  - Damage    0   |     8     |   8
+  - Health    0   |     8     |   8
+  - AP        0   |     6     |   6
+  - Radar     0   | Map Width | Map Width
+  - Range     0   |    10     |   10
+  - Ammo      0   |    10     |   -
+  - Special   0   |    20     |   10
+    - min - The minimum is the minimum value that can be set in the configuration file or assigned to your tank.  
+      * Warning - If you do not add status to your tank when 0 is set, they will stay at 0, nothing will be automatically increased.
+    - max - The maximum value that can be set in the config file
+    - setAttribute - The max a stat can end at.  If this value is exceed the stat will be clamped down to the value in the chart.
+
+## Release 5.01
+## Fixes
+- Non-Disappearing objects from obstacle and health map
+  - Trees, Rocks, and (Future)Bushes will now disappear from the obstacle map when destroyed.
+- Tree/Rock Regrowth (And future bushes)
+  - These objects will now regrow after 4 turns back to their original health.  
+  - They will also reappear back on the Obstacle and Health maps.
+- Crates
+  - Crates now properly get removed from the obstacle and health maps when they are destroyed.
+  - They do NOT regrow.
+- Health Adustments:
+  - Trees: 3
+  - Rocks: 5
+  - Crates: 1
+  - Bushes: 9999
+- Regrow Rates:
+  - Currently everything that can regrow regrows at the following rates:
+    - Trees: 3
+    - Rocks: 5
+    - Crates: Never
+    - Bushes: 1
+    - Water: 0
+## Release 5.00
+## New
+-	Adjustable Tank Speed config file setting
+	- You can now adjust the speed of the tanks independently from the projectiles
+- Adjustable Projectile speed in config file
+	- You can now adjust the speed of the projectiles independently from the tanks
+- Animations
+	- Tanks and Projectiles will now try and move smoothly across the battle field
+	- The number of samples used to smooth out movement can be set in the configuration file
+- Turn Counter
+	- A turn counter now appears in the top right corner
+- AI Speed
+	- This setting will now affect individual AI turns instead of just the game turn
+-	Special Effects
+	- Tanks will now visibily show signs of damage
+		- minor damge smoke
+		- medium damage more smoke
+		- critical damage fire
+	- Projectiles now have trails
+  - Explosions are no longer a single static sprite 
+- Memory Management
+	- Switched some heavily used objects to smart pointers to ensure quicker memory cleanup.
+- Projectile stacking
+  - Projectiles from the same tank will no longer be allowed to stack.  Instead if two projectiles are fired by the same tank on 1 turn, the two projectils will merge leaving a single projectile with double health, double damage, and 40% increased size.  (These will increase additively for the amount of projectiles fired)
+  - Note with a tank tha does nothing but constantly fires, large amount of ammo, and moderate to a lot of AP the size of the projectile can get extremely large.
+  - This also has the added benefit that when checking the health map you now know which area 'more' projectiles are coming from because the health stat will be larger for combined projectiles.  
+## Fixes
+-	Tree's will now regrow properly. (4 turns).
+- Rock's will now appear again. (4 turns).
+- If a tree is destroyed on top of a tank, the tank will now take the appropriate amount of damage (1).
+- Fixed an issue with some tanks moving sideways instead of turning.
+- Potential bug with destroyed create still appearing on health map.
+  - Doubly fixed the bug
+## Changes
+- Removed bushes from dispaying a health in the health map.  Since they are not destructible there is currently no need to send their health.
+
+## Release 4.03
+## Fixed
+- Issue where when running moves the user was not updated with the current AP.
+- Minor optimization issues.
+## New
+- Brand new scoreboard
+  - Noone asked for it, but we delivered it anyway.  There is now a single scoreboard that displays the current tank's information allowing for stat tracking of more than 4 tanks at a time.  
+  - We also added a spinning image of the current tank to help identify which tank is yours.
 ## Release 4.02
 ## Fixed
 - Modified max radar range to be allowed up to map width.
@@ -11,13 +98,8 @@ Want instant communication with the Dev team? Join our
 - Default images for tanks.  If a tank does not provide any images it will instead use a default set of images.
 - Default config file. If a config.txt file is not detected, the game will attempt to write a new one and prompt the user to add their tanks to the new configuration file.
 - Fixed problem generating libCTF properly.
-- Two additional testing tanks
-  - CamperAI
-    - Will attempt to move to a corner and fire randomly away from the walls.
-  - StationaryAI
-    - Will do absolutely nothing.
 - UI Refresh 3.0
-  - With the support for more tanksm the GUI was redrawn now to display the information for the tank whose turn it is including a small representation of the tank. 
+  - With the support for more tanks, the GUI was redrawn now to display the information for the tank whose turn it is including a small representation of the tank. 
 - New Configuration Options
   - Added MAXTURNS option into the config file
     - This will allow the user to override the default value set.
