@@ -1,9 +1,8 @@
 CXX = g++
 CXXFLAGS = -g -std=c++11 -fPIC
 INCS = -Isrc/
-LIBS = -ldl
-LIBS += -lCTF -Llibraries
-SOFLAGS = -DDYNAMIC
+LIBS = -Llibraries -lCTF
+SOFLAGS = -DDYNAMIC -Wl,-R libraries
 
 SRC_PATH= src/
 TANK_PATH= tanks/
