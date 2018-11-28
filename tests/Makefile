@@ -6,9 +6,9 @@ LIBS = -ldl -lCTF -lGLU -lGL -lglut -lSOIL -lpthread
 
 
 TEST_FILES = main.o
-TEST_FILES += WaveFrontAITests.o
+TEST_FILES += WaveFrontTests.o
 
-FILES = ../WaveFrontAI.o
+FILES = ../WaveFront.o
 #FILES += ../libraries/MapData.o
 FILES += ../src/Actor.o
 
