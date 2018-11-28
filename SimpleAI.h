@@ -3,6 +3,7 @@
 
 #include "src/Actor.h"
 #include "src/direction.h"
+#include "src/MapData.h"
 #include <cmath>
 
 class SimpleAI : public Actor
@@ -37,6 +38,9 @@ public:
      */
    
     attributes myStats; 
+  
+    bool spend = false;
+    MapData * tempMap;
 
     SimpleAI();
     ~SimpleAI();

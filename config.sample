@@ -41,9 +41,8 @@ BUSH_IMAGE images/bush/bush1.png images/bush/bush2.png images/bush/bush3.png ima
 ROCK_IMAGE images/rock/rock.png images/rock/rockb.png images/rock/rockc.png
 WATER_IMAGE images/Water/waterTex.png images/Water/waterTexNS.png images/Water/waterTexES.png images/Water/waterTexSS.png images/Water/waterTexWS.png images/Water/waterTexNES.png images/Water/waterTexSES.png images/Water/waterTexSWS.png images/Water/waterTexNWS.png images/Water/waterTexEWS.png images/Water/waterTexNSS.png images/Water/waterTexNWES.png images/Water/waterTexNESS.png images/Water/waterTexSEWS.png images/Water/waterTexNWSS.png images/Water/waterTexPond.png
 
-#Max Turns
-#MAXTURNS 200
-MAXTURNS 200
+#Max Turns <200>
+MAXTURNS 2
 
 #TANK RULES
 #STAT <AMMOUNT>
