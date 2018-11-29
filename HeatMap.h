@@ -11,4 +11,5 @@ public:
     void newMap(const MapData & map, const PositionData & status);
     void setRadar(int radar);
     const std::vector<int>& getMap();
+    void update(const MapData & map, const PositionData & status);
 };
