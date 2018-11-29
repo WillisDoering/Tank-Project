@@ -34,12 +34,10 @@ Archangel::~Archangel(){}
  ****************************************************************************/
 direction Archangel::move(MapData map, PositionData status)
 {
-    cout << "Move" << endl;
     int minx = 0;
     int miny = 0;
     int minDist = 0xFFFF; //large value
     vector<int> distVect = wf.waveMap;
-    cout << distVect[0] << endl;
     for (int x = -1; x < 2; ++x)
     for (int y = -1; y< 2; ++y)
     {
@@ -190,8 +188,30 @@ int Archangel::spendAP(MapData map, PositionData status)
 
         //If we see them, wavefront ourselves and find spot mentioned above
 
-        //wf.genMap(map, status.game_x, status.game_y);
+        int min_dist = 0xFFFF;
+        pair<int, int> min_loc(0, 0);
 
+        for (int i = -1; i < 2; ++i)
+        {
+            for (int j = -1; j < 2; ++j)
+            {
+                if ((i || j) && hostiles[0]+i*radar < map.width && hostiles[1]+j*radar > map.height &&
+                wf.waveMap[hostiles[0]+i*radar + (hostiles[1]+j*radar)*map.width] < min_dist)
+                {
+                    min_dist = wf.waveMap[hostiles[0]+i*radar + (hostiles[1]+j*radar)*map.width];
+                    min_loc = pair<int, int>(hostiles[0]+i*radar, hostiles[1]+j*radar);
+                }
+            }
+        }
+
+        if (min_loc == pair<int,int> (status.game_x, status.game_y))
+        {
+            cout << "Attack!!!!!" << endl;
+            get_danger(status);
+            return 2;
+        }
+        wf.genMap(map, min_loc.first, min_loc.second);
+        return 1;
     }
     
 
