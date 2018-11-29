@@ -98,22 +98,23 @@ int Archangel::spendAP(MapData map, PositionData status)
  * 2D array.
  * 
  * @param[in]   map - Current map information
- * @param[out]   pos - 2D array of tanks
+ * @param[out]  pos - 2D array of tanks
  *
  ****************************************************************************/
 void Archangel::find_hostiles(MapData map, int **pos)
 {
     //Variables
     int size = map.width * map.height;
-    int x, y;
+    int tank = 0;
 
     //
     for (int i = 0; i < size; i++)
     {
         if (map.map[i])
         {
-            hostiles[map.map[i]-1][x] = size % map.width;
-            hostiles[map.map[i]-1][x] = floor(size / map.height);
+            hostiles[tank][0] = i % map.width;
+            hostiles[tank][1] = floor(i / map.height);
+            tank++;
         }
     }
 }
