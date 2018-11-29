@@ -29,9 +29,9 @@ public:
 
 private:
 
-    int hostiles[4][2]; /*!< Location of up to 4 hostiles in play */
+    vector<int[2]> hostiles; /*!< Location of up to 4 hostiles in play */
 
-    void find_hostiles(MapData map, int **pos);
+    void find_hostiles(MapData map, vector<int[2]> pos);
 
 };
 

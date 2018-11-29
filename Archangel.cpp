@@ -83,7 +83,6 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 int Archangel::spendAP(MapData map, PositionData status)
 {
     //Variables
-    int hostiles[4][2];
     return 1;
     
 }
@@ -101,20 +100,23 @@ int Archangel::spendAP(MapData map, PositionData status)
  * @param[out]  pos - 2D array of tanks
  *
  ****************************************************************************/
-void Archangel::find_hostiles(MapData map, int **pos)
+void Archangel::find_hostiles(MapData map, vector<int[2]> pos)
 {
     //Variables
     int size = map.width * map.height;
-    int tank = 0;
+    int tank[2];
 
-    //
+    //Reset hostile vector
+    hostiles.clear();
+
+    //Add all located tanks
     for (int i = 0; i < size; i++)
     {
         if (map.map[i])
         {
-            hostiles[tank][0] = i % map.width;
-            hostiles[tank][1] = floor(i / map.height);
-            tank++;
+            tank[0] = i % map.width;
+            tank[1] = floor(i / map.height);
+            hostiles.push_back(tank);
         }
     }
 }
