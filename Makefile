@@ -12,6 +12,7 @@ LIB_PATH= libraries/
 TANKS = SimpleAI.so
 TANKS += PongAI.so
 TANKS += WaveFrontAI.so
+TANKS += Archangel.so
 
 TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
 
