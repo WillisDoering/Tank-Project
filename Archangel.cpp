@@ -113,7 +113,6 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
  ****************************************************************************/
 int Archangel::spendAP(MapData map, PositionData status)
 {
-    //TEST: find_hostiles
     find_hostiles(map, status.game_x, status.game_y);
     if(hostiles.size())
     {
