@@ -55,3 +55,14 @@ TEST_CASE("HeatMap.update() updates the existing heatmap to reflect newly uncove
                               
     REQUIRE(hm.getMap() == correct);
 }
+
+TEST_CASE("HeatMap.whereTo() returns the ideal spot to move for exploration")
+{
+    HeatMap hm;
+    hm.setRadar(4);
+    MapData map(10,10);
+    PositionData status(1, 1, 0, 0, 0, 0);
+    hm.newMap(map, status);
+    std::pair<int,int> correct (9,0);
+    REQUIRE(hm.whereTo()== correct);
+}
