@@ -34,12 +34,39 @@ Archangel::~Archangel(){}
  ****************************************************************************/
 direction Archangel::move(MapData map, PositionData status)
 {
-    //Variables
-    int const MAP_SIZE = map.width + map.height;
-    direction move = STAY;
+    cout << "Move" << endl;
+    int minx = 0;
+    int miny = 0;
+    int minDist = 0xFFFF; //large value
+    vector<int> distVect = wf.waveMap;
+    cout << distVect[0] << endl;
+    for (int x = -1; x < 2; ++x)
+    for (int y = -1; y< 2; ++y)
+    {
+        
+        if (status.game_x + x > 0 && status.game_y + y > 0 &&
+            status.game_x + x < map.width && status.game_y + y < map.height &&
+            distVect.at(status.game_x + x + (status.game_y + y) * map.width) > 0 && 
+            distVect.at(status.game_x + x + (status.game_y + y) * map.width) < minDist)
+        {
+            minDist = distVect.at(status.game_x + x + (status.game_y + y) * map.width);
+            minx = x;
+            miny = y;
+        }
+        
+    }
 
-    return move;
     
+    if (minx < 0)
+    {
+        return (miny > 0) ? DOWNLEFT : (miny < 0) ? UPLEFT : LEFT;
+    }
+    if (minx > 0)
+    {
+        return (miny > 0) ? DOWNRIGHT : (miny < 0) ? UPRIGHT : RIGHT;
+    }
+
+    return (miny > 0) ? DOWN : (miny < 0) ? UP : STAY;
 }
 
 
@@ -122,11 +149,12 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 
     if(pointsAvailable) tank.tankAP++;
 
-    radar = baseStats.tankRadar;
+    radar = baseStats.tankRadar+tank.tankRadar;
 
     target.first = -1;
     target.second = -1;
 
+    hm.setRadar(baseStats.tankRadar+tank.tankRadar);
     return tank;
 }
 
@@ -155,7 +183,16 @@ int Archangel::spendAP(MapData map, PositionData status)
         wf.genMap(map, target.first, target.second);
         return 1;
     }
-    
+    else
+    {
+        //Calculate 8 best spots
+        //If there, fire. If not, go there
+
+        //If we see them, wavefront ourselves and find spot mentioned above
+
+        //wf.genMap(map, status.game_x, status.game_y);
+
+    }
     
 
     return 3;

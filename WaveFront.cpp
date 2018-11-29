@@ -10,7 +10,7 @@ std::vector<int>& WaveFront::genMap(MapData& map, int target_x, int target_y, in
     }
     if (target_x < 0 || target_y < 0 || target_x >= map.width || target_y >= map.height)
         return waveMap;
-    if (map.obstacleMap[target_x + target_y*map.width])
+    if (map.obstacleMap[target_x + target_y*map.width] &&( map.obstacleMap[target_x + target_y*map.width] == 'W' || map.obstacleMap[target_x + target_y*map.width] == 'R'))
         return waveMap;
 
     if (waveMap.at(target_x + target_y*map.width) == -1 || d < waveMap.at(target_x + target_y*map.width))
