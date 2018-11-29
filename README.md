@@ -1,6 +1,11 @@
 # Slackers_Platform
 Want instant communication with the Dev team? Join our
 [Discord Channel](https://discord.gg/VN7ZuWR)!
+## Release 6.01
+## Fixes
+  - Fixed issue with Object map not always updating on a tank move command
+  - Fixed issue with max_turns not being correctly enforced
+
 ## Release 6.00
 ## Fixes
   - Fixed projectiles turning into torpedos

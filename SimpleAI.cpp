@@ -19,6 +19,19 @@ direction SimpleAI::move(MapData map, PositionData status)
     int mHeight = map.height/2, mWidth = map.width/2;
     int x_pos = status.game_x, y_pos = status.game_y;
     int offset = 2; //lee way for moving
+   
+    //tempMap = new MapData();
+
+    if (spend == true){
+      //Debug for testing mapupdate
+      /*printf("Move Map:\n");
+      for (int i = 0; i < map.map.size(); i++){
+      printf("%d ", map.map[i]);
+      if (i % 30 == 29)
+            printf("\n");
+      }
+      printf("X: %d, Y: %d\n", status.game_x, status.game_y);*/
+    }
     for (int x = 0; x < map.width; ++x)
     {
         for (int y = 0; y < map.height; ++y)
@@ -214,8 +227,18 @@ int SimpleAI::calcDist(int x1, int y1, int x2, int y2)
 
 int SimpleAI::spendAP(MapData map, PositionData status)
 {
+    spend = false;
     direction tMove = move(map,status);
     direction tAttack = attack(map,status);
+    spend = true;
+    /*printf("Spend Map:\n");
+    for (int i = 0; i < map.map.size(); i++){
+    printf("%d ", map.map[i]);
+    if (i % 30 == 29)
+          printf("\n");
+    }
+    printf("X: %d, Y: %d\n", status.game_x, status.game_y);
+    */
 
     if (tMove == STAY && tAttack != STAY) //If there is nowhere to move, attack
         return 2;
