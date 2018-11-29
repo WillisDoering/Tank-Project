@@ -24,7 +24,7 @@ public:
 
     virtual direction move(MapData map, PositionData status);
     virtual direction attack(MapData map, PositionData status);
-    virtual attributes setAttribute(int pointsAvailable);
+    virtual attributes setAttribute(int pointsAvailable, attributes baseStats);
     virtual int spendAP(MapData map, PositionData status);
 
 private:

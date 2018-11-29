@@ -46,7 +46,7 @@ direction Archangel::attack(MapData map, PositionData status)
 {
 }
 
-attributes Archangel::setAttribute(int pointsAvailable)
+attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 {
     //Variables
     attributes tank;
@@ -120,5 +120,12 @@ void Archangel::find_hostiles(MapData map, int **pos)
 
 
 
-
-extern "C" Actor * maker() {return new Archangel;}
+#ifdef DYNAMIC
+extern "C" //required for runtime linking
+{
+    Actor * maker()
+    {
+        return new Archangel;
+    }
+}
+#endif
