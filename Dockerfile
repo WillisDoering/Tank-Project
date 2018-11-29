@@ -27,8 +27,10 @@ CMD /bin/bash
 # apt-get and install tools
 RUN sudo apt-get update
 RUN sudo apt-get install -y make gcc g++ lcov freeglut3-dev git
+RUN sudo apt install -y libsoil1 libsoil-dev
 
 # remove apt files after installs
 RUN sudo rm -rf /var/lib/apt/lists/*
+
 
 COPY .gitconfig /home/dev/.gitconfig
