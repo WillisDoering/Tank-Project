@@ -124,12 +124,15 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 
     radar = baseStats.tankRadar;
 
+    target.first = -1;
+    target.second = -1;
+
     return tank;
 }
 
 
 /*************************************************************************//**
- * @author William Doering
+ * @author William Doering, David Donahue, Mike Theesen, Dillon Roller
  *
  * @par Description:
  *
@@ -137,13 +140,23 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
  ****************************************************************************/
 int Archangel::spendAP(MapData map, PositionData status)
 {
+    //Check for hostiles
     find_hostiles(map, status.game_x, status.game_y);
-    if(hostiles.size())
+
+    if(!hm.getMap().size())
+        hm.newMap(map, status);
+
+    hm.update(map, status);
+
+    if(!hostiles.size())
     {
-        get_danger(status);
-        if(firing_arc.size())
-            return 2;
+        if(target.first == -1 && target.second == -1)
+            target = hm.whereTo();
+        wf.genMap(map, target.first, target.second);
+        return 1;
     }
+    
+    
 
     return 3;
 }

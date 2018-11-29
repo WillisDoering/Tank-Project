@@ -14,9 +14,12 @@ TANKS += PongAI.so
 TANKS += WaveFrontAI.so
 TANKS += Archangel.so
 
-TANKS_LINK = src/Actor.o #need to link in the base class for the .so to have everything.
+TANKS_LINK = src/Actor.o HeatMap.o WaveFront.o #need to link in the base class for the .so to have everything.
 
-%.so: %.cpp
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $^ -o $@ $(LIBS) $(INCS) 
+
+%.so: %.cpp $(TANKS_LINK)
 	$(CXX) $(CXXFLAGS) -shared $< $(TANKS_LINK) -o $@ $(SOFLAGS) $(LIBS)
 
 %.h.gch: %.h
