@@ -42,11 +42,17 @@ direction Archangel::move(MapData map, PositionData status)
     
 }
 
+
+/*************************************************************************//**
+ * @author William Doering
+ *
+ * @par Description:
+ *
+ *
+ ****************************************************************************/
 direction Archangel::attack(MapData map, PositionData status)
 {
-    vector<int> fire = get_danger(status);
-    if (!fire.size()) return STAY;
-    switch (fire[0])
+    switch (firing_arc[0])
     {
         case 1:
             return UP;
@@ -69,6 +75,14 @@ direction Archangel::attack(MapData map, PositionData status)
     };
 }
 
+
+/*************************************************************************//**
+ * @author William Doering
+ *
+ * @par Description:
+ *
+ *
+ ****************************************************************************/
 attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 {
     //Variables
@@ -104,11 +118,26 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
     return tank;
 }
 
+
+/*************************************************************************//**
+ * @author William Doering
+ *
+ * @par Description:
+ *
+ *
+ ****************************************************************************/
 int Archangel::spendAP(MapData map, PositionData status)
 {
     //TEST: find_hostiles
     find_hostiles(map, status.game_x, status.game_y);
-    return (hostiles.size() > 0) ? 2 : 3;
+    if(hostiles.size())
+    {
+        get_danger(status);
+        if(firing_arc.size())
+            return 2;
+    }
+
+    return 3;
 }
 
 
@@ -153,9 +182,10 @@ void Archangel::find_hostiles(MapData map, int x, int y)
  * 
  *
  ****************************************************************************/
-vector<int> Archangel::get_danger(PositionData status)
+void Archangel::get_danger(PositionData status)
 {
-    vector<int> tank_dir;
+    firing_arc.clear();
+
     //Check if hostiles are seen
     if (hostiles.size())
     {
@@ -170,17 +200,15 @@ vector<int> Archangel::get_danger(PositionData status)
             temp_y = status.game_y - hostiles[(i*2)+1];
 
             if(!temp_x)
-                tank_dir.push_back((temp_y > 0) ? 1 : 5);
+                firing_arc.push_back((temp_y > 0) ? 1 : 5);
             else if(!temp_y)
-                tank_dir.push_back((temp_x > 0) ? 7 : 3);
+                firing_arc.push_back((temp_x > 0) ? 7 : 3);
             else if(temp_x == temp_y)
-                tank_dir.push_back((temp_x > 0) ? 8 : 4);
+                firing_arc.push_back((temp_x > 0) ? 8 : 4);
             else if(temp_x == temp_y * -1)
-                tank_dir.push_back((temp_x > 0) ? 6 : 2);
+                firing_arc.push_back((temp_x > 0) ? 6 : 2);
         }
     }
-
-    return tank_dir;
 }
 
 
