@@ -1,16 +1,18 @@
 CXX = g++
 CXXFLAGS = -g -std=c++11 -DTESTING -fPIC
-INCS = -I../src/  -L../libraries
+INCS = -I../src/  -L.
 
 LIBS = -ldl -lCTF -lGLU -lGL -lglut -lSOIL -lpthread
 
 
 TEST_FILES = main.o
 TEST_FILES += WaveFrontTests.o
+TEST_FILES += HeatMapTests.o
 
 FILES = ../WaveFront.o
 #FILES += ../libraries/MapData.o
 FILES += ../src/Actor.o
+FILES += ../HeatMap.o
 
 
 %.o : %.cpp
