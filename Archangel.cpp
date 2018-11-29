@@ -89,11 +89,15 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
     attributes tank;
     int points;
 
-    tank.tankRadar++;
+    while(pointsAvailable > 1)
+    {
+        tank.tankRadar++;
+        tank.tankRange++;
+        pointsAvailable -= 2;
+    }
 
-    //Decrament and loop
-    pointsAvailable--;
-    
+    if(pointsAvailable) tank.tankAP++;
+
     radar = baseStats.tankRadar;
 
     return tank;
