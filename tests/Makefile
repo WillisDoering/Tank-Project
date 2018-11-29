@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -g -std=c++11 -DTESTING -fPIC
-INCS = -I../src/  -L../libraries
+INCS = -I../src/  -L.
 
 LIBS = -ldl -lCTF -lGLU -lGL -lglut -lSOIL -lpthread
 

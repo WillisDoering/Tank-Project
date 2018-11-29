@@ -16,8 +16,8 @@ TEST_CASE("WaveFrontMap works on an open field")
 TEST_CASE("WaveFrontMap works when obstacles are present")
 {
     MapData map(3,3);
-    map.obstacleMap.at(4) = true;
-    map.obstacleMap.at(5) = true;
+    map.obstacleMap.at(4) = 'R';
+    map.obstacleMap.at(5) = 'R';
     std::vector<int> correct = { 3, 3, 4 ,
                                  2, -1, -1, 
                                  2, 1, 0 };
