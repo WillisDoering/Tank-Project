@@ -44,7 +44,21 @@ direction Archangel::move(MapData map, PositionData status)
 
 direction Archangel::attack(MapData map, PositionData status)
 {
-    return UP;
+    vector<int> fire = get_danger(status);
+    if (!fire.size()) return STAY;
+    switch (fire[0])
+    {
+        case 1:
+            return UP;
+        case 3:
+            return RIGHT;
+        case 5:
+            return DOWN;
+        case 7:
+            return LEFT;
+        default:
+            return STAY;
+    };
 }
 
 attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
@@ -77,6 +91,7 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
         //Decrament and loop
         pointsAvailable--;
     }
+    radar = baseStats.tankRadar;
 
     return tank;
 }
@@ -89,7 +104,6 @@ int Archangel::spendAP(MapData map, PositionData status)
 }
 
 
-
 /*************************************************************************//**
  * @author William Doering
  *
@@ -98,7 +112,6 @@ int Archangel::spendAP(MapData map, PositionData status)
  * 2D array.
  * 
  * @param[in]   map - Current map information
- * @param[out]  pos - 2D array of tanks
  *
  ****************************************************************************/
 void Archangel::find_hostiles(MapData map, int x, int y)
@@ -121,6 +134,40 @@ void Archangel::find_hostiles(MapData map, int x, int y)
     }
 }
 
+
+/*************************************************************************//**
+ * @author William Doering
+ *
+ * @par Description:
+ * 
+ * 
+ *
+ ****************************************************************************/
+vector<int> Archangel::get_danger(PositionData status)
+{
+    vector<int> tank_dir;
+    //Check if hostiles are seen
+    if (hostiles.size())
+    {
+        //Variables
+        int tankNo = hostiles.size() / 2;
+        int temp_x;
+        int temp_y;
+
+        for (int i=0; i < tankNo; i++)
+        {
+            temp_x = status.game_x - hostiles[i*2];
+            temp_y = status.game_y - hostiles[(i*2)+1];
+
+            if(!temp_x)
+                tank_dir.push_back((temp_y > 0) ? 1 : 5);
+            else if(!temp_y)
+                tank_dir.push_back((temp_x > 0) ? 7 : 3);
+        }
+    }
+
+    return tank_dir;
+}
 
 
 #ifdef DYNAMIC

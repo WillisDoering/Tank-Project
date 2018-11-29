@@ -12,6 +12,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include "WaveFront.h"
 using namespace std;
 
 
@@ -28,10 +29,12 @@ public:
     virtual int spendAP(MapData map, PositionData status);
 
 private:
-
+    
+    int radar;            /*!< Radar range */
     vector<int> hostiles; /*!< Location of up to 4 hostiles in play */
 
     void find_hostiles(MapData map, int x, int y);
+    vector<int> get_danger(PositionData status);
 
 };
 
