@@ -47,7 +47,7 @@ direction Archangel::move(MapData map, PositionData status)
  * @author William Doering
  *
  * @par Description:
- *
+ * Fires at first target in line-of-fire
  *
  ****************************************************************************/
 direction Archangel::attack(MapData map, PositionData status)
@@ -89,30 +89,11 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
     attributes tank;
     int points;
 
-    //Assign points
-    while (pointsAvailable)
-    {
-        //Base number used to decide where points will go
-        points = pointsAvailable % 4;
+    tank.tankRadar++;
 
-        //Determine where points go
-        switch(points)
-        {
-            case 1:
-            case 2:
-                tank.tankAP++;
-                break;
-            case 3:
-                tank.tankHealth++;
-                break;
-            case 0:
-                tank.tankShots++;
-                break;
-        }
-
-        //Decrament and loop
-        pointsAvailable--;
-    }
+    //Decrament and loop
+    pointsAvailable--;
+    
     radar = baseStats.tankRadar;
 
     return tank;
