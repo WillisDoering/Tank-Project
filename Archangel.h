@@ -32,7 +32,7 @@ private:
     
     int radar;              /*!< Radar range */
     vector<int> hostiles;   /*!< Location of up to 4 hostiles in play */
-    vector<int> firing_arc; /*!< All hostiles within firing range */
+    vector<int> firing_arc; /*!< All hostiles within line-of-fire */
 
     void find_hostiles(MapData map, int x, int y);
     void get_danger(PositionData status);

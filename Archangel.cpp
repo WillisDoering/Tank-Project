@@ -178,8 +178,18 @@ void Archangel::find_hostiles(MapData map, int x, int y)
  * @author William Doering
  *
  * @par Description:
+ * Finds whether enemy is within line-of-fire. If they are, it pushes the 
+ * direction onto the vector of ints. Directions as follows:
+ * 1 - UP
+ * 2 - UPRIGHT
+ * 3 - RIGHT
+ * 4 - DOWNRIGHT
+ * 5 - DOWN
+ * 6 - DOWNLEFT
+ * 7 - LEFT
+ * 8 - UPLEFT
  * 
- * 
+ * param[in]    status - tank stats 
  *
  ****************************************************************************/
 void Archangel::get_danger(PositionData status)
