@@ -50,12 +50,20 @@ direction Archangel::attack(MapData map, PositionData status)
     {
         case 1:
             return UP;
+        case 2:
+            return UPRIGHT;
         case 3:
             return RIGHT;
+        case 4:
+            return DOWNRIGHT;
         case 5:
             return DOWN;
+        case 6:
+            return DOWNLEFT;
         case 7:
             return LEFT;
+        case 8:
+            return UPLEFT;
         default:
             return STAY;
     };
@@ -109,9 +117,11 @@ int Archangel::spendAP(MapData map, PositionData status)
  *
  * @par Description:
  * Finds the positions of all the tanks on the map and puts them into a 
- * 2D array.
+ * vector.
  * 
  * @param[in]   map - Current map information
+ * @param[in]   x - x position of self
+ * @param[in]   y - y position of self
  *
  ****************************************************************************/
 void Archangel::find_hostiles(MapData map, int x, int y)
@@ -154,7 +164,7 @@ vector<int> Archangel::get_danger(PositionData status)
         int temp_x;
         int temp_y;
 
-        for (int i=0; i < tankNo; i++)
+        for(int i=0; i < tankNo; i++)
         {
             temp_x = status.game_x - hostiles[i*2];
             temp_y = status.game_y - hostiles[(i*2)+1];
@@ -163,6 +173,10 @@ vector<int> Archangel::get_danger(PositionData status)
                 tank_dir.push_back((temp_y > 0) ? 1 : 5);
             else if(!temp_y)
                 tank_dir.push_back((temp_x > 0) ? 7 : 3);
+            else if(temp_x == temp_y)
+                tank_dir.push_back((temp_x > 0) ? 8 : 4);
+            else if(temp_x == temp_y * -1)
+                tank_dir.push_back((temp_x > 0) ? 6 : 2);
         }
     }
 
