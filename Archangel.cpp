@@ -77,22 +77,46 @@ direction Archangel::attack(MapData map, PositionData status)
 
 
 /*************************************************************************//**
- * @author William Doering
+ * @author William Doering, David Donahue, Mike Theesen, Dillon Roller
  *
  * @par Description:
- *
+ * Evens out the range and radar stats if possible and then evenly distributes
+ * the special points between the two. If it's not possible, buff damage and
+ * AP.
+ * 
+ * param[in]    pointsAvailable - Special points available to spend
+ * param[in]    baseStats - base stats started with
  *
  ****************************************************************************/
 attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 {
-    //Variables
     attributes tank;
     int points;
+    int difference;
+
+    if(baseStats.tankRange != baseStats.tankRadar && pointsAvailable)
+    {
+        difference = baseStats.tankRange - baseStats.tankRadar;
+        if(abs(difference) <= pointsAvailable)
+        {
+            if(difference < 0)
+                tank.tankRange += abs(difference);
+            else
+                tank.tankRadar += abs(difference);
+            pointsAvailable -= abs(difference);
+        }
+        else
+        {
+            tank.tankDamage = pointsAvailable / 2;
+            pointsAvailable -= (pointsAvailable / 2);
+            tank.tankAP = pointsAvailable;
+        }
+    }
 
     while(pointsAvailable > 1)
     {
-        tank.tankRadar++;
         tank.tankRange++;
+        tank.tankRadar++;
         pointsAvailable -= 2;
     }
 
