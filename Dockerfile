@@ -30,3 +30,5 @@ RUN sudo apt-get install -y make gcc g++ lcov freeglut3-dev git
 
 # remove apt files after installs
 RUN sudo rm -rf /var/lib/apt/lists/*
+
+COPY .gitconfig /home/dev/.gitconfig
