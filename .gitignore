@@ -1,7 +1,4 @@
 *.o
 *testAll
 *.so
-!*SimpleAI.so
-!*PongAI.so
-config.txt
 results.txt

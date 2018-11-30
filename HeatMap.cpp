@@ -38,6 +38,14 @@ void HeatMap::update(const MapData & map, const PositionData & status)
         else
             hmap[i] = 0;
     }
+    bool allSeen = true;
+    for (auto d : hmap)
+    {
+        if (d)
+            allSeen = false;
+    }
+    if (allSeen)
+        newMap(map, status);
 }
 std::pair<int, int> HeatMap::whereTo()
 {
