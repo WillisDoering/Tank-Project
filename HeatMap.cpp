@@ -41,15 +41,15 @@ void HeatMap::update(const MapData & map, const PositionData & status)
 }
 std::pair<int, int> HeatMap::whereTo()
 {
-    int maxDist = 0;
-    int maxIndex = 0;
+    int minDist = 0xFFFF;
+    int minIndex = 0;
     for (int i=0; i < hmap.size(); ++i)
     {
-        if (hmap[i] > maxDist)
+        if ( hmap[i] && hmap[i] < minDist)
         {
-            maxDist = hmap[i];
-            maxIndex = i;
+            minDist = hmap[i];
+            minIndex = i;
         }
     }
-    return std::pair<int,int>(maxIndex % width, maxIndex / width);
+    return std::pair<int,int>(minIndex % width, minIndex / width);
 }

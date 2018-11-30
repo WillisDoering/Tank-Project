@@ -63,6 +63,6 @@ TEST_CASE("HeatMap.whereTo() returns the ideal spot to move for exploration")
     MapData map(10,10);
     PositionData status(1, 1, 0, 0, 0, 0);
     hm.newMap(map, status);
-    std::pair<int,int> correct (9,0);
-    REQUIRE(hm.whereTo()== correct);
+    std::pair<int,int> correct (5,0);
+    REQUIRE(hm.whereTo() == correct);
 }
