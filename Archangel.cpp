@@ -173,7 +173,7 @@ int Archangel::spendAP(MapData map, PositionData status)
     find_hostiles(map, status.game_x, status.game_y);
 
     if(!hm.getMap().size())
-        hm.newMap(map, status))
+        hm.newMap(map, status);
     hm.update(map, status);
 
     if(!hostiles.size())
@@ -204,12 +204,19 @@ int Archangel::spendAP(MapData map, PositionData status)
             }
         }
 
+        get_danger(status);
+        if (firing_arc.size())
+            return 2;
+
+        /* Initial Plan
         if (min_loc == pair<int,int> (status.game_x, status.game_y))
         {
             cout << "Attack!!!!!" << endl;
             get_danger(status);
             return 2;
         }
+        */
+
         wf.genMap(map, min_loc.first, min_loc.second);
         return 1;
     }
