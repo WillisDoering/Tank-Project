@@ -42,10 +42,10 @@ direction Archangel::move(MapData map, PositionData status)
     for (int y = -1; y< 2; ++y)
     {
         
-        if (status.game_x + x > 0 && status.game_y + y > 0 &&
+        if (status.game_x + x >= 0 && status.game_y + y >= 0 &&
             status.game_x + x < map.width && status.game_y + y < map.height &&
             distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
-                > 0 && 
+                >= 0 && 
             distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
                 < minDist)
         {
@@ -56,8 +56,7 @@ direction Archangel::move(MapData map, PositionData status)
         }
         
     }
-
-    
+        
     if (minx < 0)
     {
         return (miny > 0) ? DOWNLEFT : (miny < 0) ? UPLEFT : LEFT;
@@ -248,17 +247,33 @@ int Archangel::spendAP(MapData map, PositionData status)
             cout <<"ERROR\n\n";
         }
 
-        if (min_dist == 0)
+        if (min_dist == 0 && status.ap > 1)
         {
             cout << "MURDER TIME\n\n";
             get_danger(status);
             return 2;
         }
-        else
+        else if (status.ap > 1)
         {
             cout << "MOVING INTO POSTION\n\n";
             wf.genMap(map, min_loc.first, min_loc.second);
             return 1;
+        }
+        else
+        {
+            cout << x << ' ' << y << "\n\n";
+            for (int i = status.game_x - 1; i < status.game_x + 2; ++i)
+            {
+                for (int j = status.game_y - 1; j < status.game_y + 2; ++j)
+                {
+                    if (i-x && j-y && abs(i-x) != abs(j-y)) 
+                    {
+                        cout << i-x << ' ' << j-y << "\n\n";
+                        wf.genMap(map, i, j);
+                        return 1;
+                    }
+                }
+            }
         }
 
     }
