@@ -206,16 +206,18 @@ int Archangel::spendAP(MapData map, PositionData status)
                     }
                     else if (x - i == 0)
                     {
-                        for (int ty = 0; ty != y; ty += (y > j) ? 1 : -1)
+                        for (int ty = j; ty != y; ty += (y > j) ? 1 : -1)
                             if (map.obstacleMap[x + ty*map.width] == 'R')
                                 beThereRock = true;
                     }
                     else if (y - j == 0)
                     {
-                        for (int tx = 0; tx != x; tx += (x > i) ? 1 : -1)
+                        for (int tx = i; tx != x; tx += (x > i) ? 1 : -1)
                             if (map.obstacleMap[tx + y*map.width] == 'R')
                                 beThereRock = true;
                     }
+                    else
+                        beThereRock = true;
                     if (!beThereRock)
                     {
                         min_dist = wf.waveMap[i + j * map.width];
