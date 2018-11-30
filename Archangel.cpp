@@ -191,15 +191,18 @@ int Archangel::spendAP(MapData map, PositionData status)
         int min_dist = 0xFFFF;
         pair<int, int> min_loc(0, 0);
 
+        int x = hostiles[0].first;
+        int y = hostiles[0].second;
+
         for (int i = -1; i < 2; ++i)
         {
             for (int j = -1; j < 2; ++j)
             {
-                if ((i || j) && hostiles[0]+i*radar < map.width && hostiles[1]+j*radar > map.height &&
-                wf.waveMap[hostiles[0]+i*radar + (hostiles[1]+j*radar)*map.width] < min_dist)
+                if ((i || j) && x+i*radar < map.width && y+j*radar > map.height &&
+                wf.waveMap[x+i*radar + (y+j*radar)*map.width] < min_dist)
                 {
-                    min_dist = wf.waveMap[hostiles[0]+i*radar + (hostiles[1]+j*radar)*map.width];
-                    min_loc = pair<int, int>(hostiles[0]+i*radar, hostiles[1]+j*radar);
+                    min_dist = wf.waveMap[x+i*radar + (y+j*radar)*map.width];
+                    min_loc = pair<int, int>(x+i*radar, y+j*radar);
                 }
             }
         }
@@ -245,8 +248,8 @@ void Archangel::find_hostiles(MapData map, int x, int y)
     {
         if (map.map[i] && i != currPos)
         {
-            hostiles.push_back(i % map.width);
-            hostiles.push_back(floor(i / map.width));
+            pair<int, int> temp(i % map.width,floor(i / map.width));
+            hostiles.push_back(temp);
         }
     }
 }
@@ -278,14 +281,14 @@ void Archangel::get_danger(PositionData status)
     if (hostiles.size())
     {
         //Variables
-        int tankNo = hostiles.size() / 2;
+        int tankNo = hostiles.size();
         int temp_x;
         int temp_y;
 
         for(int i=0; i < tankNo; i++)
         {
-            temp_x = status.game_x - hostiles[i*2];
-            temp_y = status.game_y - hostiles[(i*2)+1];
+            temp_x = status.game_x - hostiles[i].first;
+            temp_y = status.game_y - hostiles[i].second;
 
             if(!temp_x)
                 firing_arc.push_back((temp_y > 0) ? 1 : 5);

@@ -32,12 +32,12 @@ public:
 
 private:
 
-    int radar;              /*!< Radar range */
-    vector<int> hostiles;   /*!< Location of all visible hostiles in play */
-    vector<int> firing_arc; /*!< All hostiles within line-of-fire */
-    HeatMap hm;
-    WaveFront wf;
-    pair<int, int> target;
+    int radar;                          /*!< Radar range */
+    vector<pair<int, int>> hostiles;    /*!< Location of all visible hostiles in play */
+    vector<int> firing_arc;             /*!< All hostiles within line-of-fire */
+    HeatMap hm;                         /*!< HeatMap used for movement */
+    WaveFront wf;                       /*!< WaveFront used for movement */
+    pair<int, int> target;              /*!< Selected target to move towards */
 
     void find_hostiles(MapData map, int x, int y);
     void get_danger(PositionData status);
