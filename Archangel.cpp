@@ -118,9 +118,16 @@ direction Archangel::attack(MapData map, PositionData status)
  ****************************************************************************/
 attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 {
-    attributes tank;
+    attributes tank (0,0,0,0,0);
     int points;
     int difference;
+
+    hm.setRadar(baseStats.tankRadar);
+    radar = baseStats.tankRadar;
+    tank.tankAP = pointsAvailable;
+    return tank;
+
+
 
     if(baseStats.tankRange != baseStats.tankRadar && pointsAvailable)
     {
@@ -169,8 +176,10 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
  ****************************************************************************/
 int Archangel::spendAP(MapData map, PositionData status)
 {
+    id = status.id;
     //Check for hostiles
     find_hostiles(map, status.game_x, status.game_y);
+
 
     if(!hm.getMap().size())
         hm.newMap(map, status);
@@ -178,13 +187,19 @@ int Archangel::spendAP(MapData map, PositionData status)
 
     if(!hostiles.size())
     {
-        if(target.first == -1 && target.second == -1)
+
+        target = hm.whereTo();
+        if (target == std::pair<int,int> (status.game_x, status.game_y))
+        {
+            hm.newMap(map,status);
             target = hm.whereTo();
+        }
         wf.genMap(map, target.first, target.second);
         return 1;
     }
     else
     {
+        cout << hostiles.back().first << ' ' << hostiles.back().second << endl;
         int min_dist = 0xFFFF;
         pair<int, int> min_loc(0, 0);
 
@@ -204,18 +219,12 @@ int Archangel::spendAP(MapData map, PositionData status)
             }
         }
 
-        get_danger(status);
-        if (firing_arc.size())
-            return 2;
-
-        /* Initial Plan
         if (min_loc == pair<int,int> (status.game_x, status.game_y))
         {
             cout << "Attack!!!!!" << endl;
             get_danger(status);
             return 2;
         }
-        */
 
         wf.genMap(map, min_loc.first, min_loc.second);
         return 1;
@@ -238,21 +247,26 @@ int Archangel::spendAP(MapData map, PositionData status)
  * @param[in]   y - y position of self
  *
  ****************************************************************************/
-void Archangel::find_hostiles(MapData map, int x, int y)
+void Archangel::find_hostiles(const MapData & map, int x, int y)
 {
     //Variables
-    int size = map.width * map.height;
+    int size = map.map.size();
     int currPos = x + y * map.width;
 
     //Reset hostile vector
-    hostiles.clear();
+    hostiles.resize(0);
 
     //Add all located tanks
     for (int i = 0; i < size; i++)
     {
-        if (map.map[i] && i != currPos)
+        /*cout << map.map[i];
+        if (i%map.width == 0) 
+            cout << endl;*/
+        if (map.map[i] && map.map[i] != id)
         {
-            pair<int, int> temp(i % map.width,floor(i / map.width));
+            cout << endl << endl << i << "\n\n";
+            cout << map.width << "\n\n";
+            pair<int, int> temp(i % map.width, i / map.width);
             hostiles.push_back(temp);
         }
     }

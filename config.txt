@@ -19,10 +19,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #AI LIST: AI <NAME> <STARTX> <STARTY> <UPIMAGE> <RIGHTIMAGE> <DOWNIMAGE> <LEFTIMAGE> <BULLETIMAGE>
 AI Archangel 14 9 images/Tiger/tankTi_U.png images/Tiger/tankTi_R.png images/Tiger/tankTi_D.png images/Tiger/tankTi_L.png images/Tiger/bulletTi.png
 
-AI Cat 0 0 images/BlackWhite/tankBW_U.png images/BlackWhite/tankBW_R.png images/BlackWhite/tankBW_D.png images/BlackWhite/tankBW_L.png images/BlackWhite/bulletBW.png
+#AI Cat 0 0 images/BlackWhite/tankBW_U.png images/BlackWhite/tankBW_R.png images/BlackWhite/tankBW_D.png images/BlackWhite/tankBW_L.png images/BlackWhite/bulletBW.png
 #AI Cat 0 12 images/SkyBlue/tankSB_U.png images/SkyBlue/tankSB_R.png images/SkyBlue/tankSB_D.png images/SkyBlue/tankSB_L.png images/SkyBlue/bulletSB.png
 AI Mouse 14 4 images/Blue/tankB_U.png images/Blue/tankB_R.png images/Blue/tankB_D.png images/Blue/tankB_L.png images/Blue/bulletB.png
-#AI Target 14 10 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
+AI Target 14 10 images/Red/tankR_U.png images/Red/tankR_R.png images/Red/tankR_D.png images/Red/tankR_L.png images/Red/bulletR.png
 AI Turret 12 6 images/Green/tankG_U.png images/Green/tankG_R.png images/Green/tankG_D.png images/Green/tankG_L.png images/Green/bulletG.png
 #AI Target 12 10 images/Coral/tankC_U.png images/Coral/tankC_R.png images/Coral/tankC_D.png images/Coral/tankC_L.png images/Coral/bulletC.png
 #AI Target 16 6 images/Lime/tankLi_U.png images/Lime/tankLi_R.png images/Lime/tankLi_D.png images/Lime/tankLi_L.png images/Lime/bulletLi.png

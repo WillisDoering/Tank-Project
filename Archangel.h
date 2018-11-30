@@ -38,8 +38,9 @@ private:
     HeatMap hm;                         /*!< HeatMap used for movement */
     WaveFront wf;                       /*!< WaveFront used for movement */
     pair<int, int> target;              /*!< Selected target to move towards */
+    int id;
 
-    void find_hostiles(MapData map, int x, int y);
+    void find_hostiles(const MapData & map, int x, int y);
     void get_danger(PositionData status);
 
 };
