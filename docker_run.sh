@@ -1,7 +1,7 @@
 xhost +local:root
 
 docker run -ti \
-	-v "`pwd`":/root \
+	-v "`pwd`":/home/dev/platform \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-e DISPLAY=$DISPLAY \
-	game sh -c 'cd /root && /root/platform'
+	slackers sh -c 'cd /home/dev/platform && bash'
