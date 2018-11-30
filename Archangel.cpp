@@ -39,24 +39,24 @@ direction Archangel::move(MapData map, PositionData status)
     int minDist = 0xFFFF; //large value
     vector<int> distVect = wf.waveMap;
     for (int x = -1; x < 2; ++x)
-    for (int y = -1; y< 2; ++y)
-    {
-        
-        if (status.game_x + x >= 0 && status.game_y + y >= 0 &&
-            status.game_x + x < map.width && status.game_y + y < map.height &&
-            distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
-                >= 0 && 
-            distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
-                < minDist)
+        for (int y = -1; y< 2; ++y)
         {
-            minDist = distVect.at(status.game_x + x + (status.game_y + y) 
-                * map.width);
-            minx = x;
-            miny = y;
+
+            if (status.game_x + x >= 0 && status.game_y + y >= 0 &&
+                    status.game_x + x < map.width && status.game_y + y < map.height &&
+                    distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
+                    >= 0 && 
+                    distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
+                    < minDist)
+            {
+                minDist = distVect.at(status.game_x + x + (status.game_y + y) 
+                        * map.width);
+                minx = x;
+                miny = y;
+            }
+
         }
-        
-    }
-        
+
     if (minx < 0)
     {
         return (miny > 0) ? DOWNLEFT : (miny < 0) ? UPLEFT : LEFT;
@@ -124,44 +124,7 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
     hm.setRadar(baseStats.tankRadar);
     radar = baseStats.tankRadar;
     tank.tankAP = pointsAvailable;
-    return tank;
-
-
-
-    if(baseStats.tankRange != baseStats.tankRadar && pointsAvailable)
-    {
-        difference = baseStats.tankRange - baseStats.tankRadar;
-        if(abs(difference) <= pointsAvailable)
-        {
-            if(difference < 0)
-                tank.tankRange += abs(difference);
-            else
-                tank.tankRadar += abs(difference);
-            pointsAvailable -= abs(difference);
-        }
-        else
-        {
-            tank.tankDamage = pointsAvailable / 2;
-            pointsAvailable -= (pointsAvailable / 2);
-            tank.tankAP = pointsAvailable;
-        }
-    }
-
-    while(pointsAvailable > 1)
-    {
-        tank.tankRange++;
-        tank.tankRadar++;
-        pointsAvailable -= 2;
-    }
-
-    if(pointsAvailable) tank.tankAP++;
-
-    radar = baseStats.tankRadar+tank.tankRadar;
-
-    target.first = -1;
-    target.second = -1;
-
-    hm.setRadar(baseStats.tankRadar+tank.tankRadar);
+    tank.tankDamage = 0;
     return tank;
 }
 
@@ -226,19 +189,38 @@ int Archangel::spendAP(MapData map, PositionData status)
         {
             for (int i = x - radar; i < x + radar; ++i)
             {
-            /*    if(i >= 0 && j >= 0 && i < map.width && j < map.height)
-                {
-                    cout << map.obstacleMap[i+j*map.width];//wf.waveMap[i+j*map.width];
-                    
-                }
-                if (i == x + radar - 1)
-                        cout << '\n';*/
                 if (i >= 0 && j >= 0 && i < map.width && j < map.height &&
-                    (abs(i - x) == abs(j - y) || x - i == 0 || y - j == 0) &&
-                    wf.waveMap[i+j*map.width] < min_dist && wf.waveMap[i+j*map.width] >= 0)
+                        wf.waveMap[i+j*map.width] < min_dist && wf.waveMap[i+j*map.width] >= 0)
                 {
-                    min_dist = wf.waveMap[i + j * map.width];
-                    min_loc = pair<int, int>(i, j);
+                    bool beThereRock = false;
+
+                    if(abs(i - x) == abs(j - y))
+                    {
+
+                        for (std::pair<int,int> loc(x, y); loc != std::pair<int,int> (i,j); 
+                                loc.first+= (i > x) ? 1 : -1 , loc.second += (j > y) ? 1 : -1)
+                        {
+                            if (map.obstacleMap[loc.first + loc.second*map.width] == 'R')
+                                beThereRock = true;
+                        }
+                    }
+                    else if (x - i == 0)
+                    {
+                        for (int ty = 0; ty != y; ty += (y > j) ? 1 : -1)
+                            if (map.obstacleMap[x + ty*map.width] == 'R')
+                                beThereRock = true;
+                    }
+                    else if (y - j == 0)
+                    {
+                        for (int tx = 0; tx != x; tx += (x > i) ? 1 : -1)
+                            if (map.obstacleMap[tx + y*map.width] == 'R')
+                                beThereRock = true;
+                    }
+                    if (!beThereRock)
+                    {
+                        min_dist = wf.waveMap[i + j * map.width];
+                        min_loc = pair<int, int>(i, j);
+                    }
                 }
             }
         }
@@ -277,7 +259,7 @@ int Archangel::spendAP(MapData map, PositionData status)
         }
 
     }
-    
+
 
     return 3;
 }
@@ -309,7 +291,7 @@ void Archangel::find_hostiles(const MapData & map, int x, int y)
     {
         if (map.map[i] && map.map[i] != id && map.map[i] != -id)
         {
-    
+
             pair<int, int> temp(i % map.width, i / map.width);
             hostiles.push_back(temp);
         }
