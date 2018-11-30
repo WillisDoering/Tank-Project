@@ -44,10 +44,13 @@ direction Archangel::move(MapData map, PositionData status)
         
         if (status.game_x + x > 0 && status.game_y + y > 0 &&
             status.game_x + x < map.width && status.game_y + y < map.height &&
-            distVect.at(status.game_x + x + (status.game_y + y) * map.width) > 0 && 
-            distVect.at(status.game_x + x + (status.game_y + y) * map.width) < minDist)
+            distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
+                > 0 && 
+            distVect.at(status.game_x + x + (status.game_y + y) * map.width) 
+                < minDist)
         {
-            minDist = distVect.at(status.game_x + x + (status.game_y + y) * map.width);
+            minDist = distVect.at(status.game_x + x + (status.game_y + y) 
+                * map.width);
             minx = x;
             miny = y;
         }
@@ -193,7 +196,7 @@ int Archangel::spendAP(MapData map, PositionData status)
             for (int j = -1; j < 2; ++j)
             {
                 if ((i || j) && x+i*radar < map.width && y+j*radar > map.height &&
-                wf.waveMap[x+i*radar + (y+j*radar)*map.width] < min_dist)
+                    wf.waveMap[x+i*radar + (y+j*radar)*map.width] < min_dist)
                 {
                     min_dist = wf.waveMap[x+i*radar + (y+j*radar)*map.width];
                     min_loc = pair<int, int>(x+i*radar, y+j*radar);
