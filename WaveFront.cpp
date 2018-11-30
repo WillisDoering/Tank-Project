@@ -1,6 +1,6 @@
 #include "WaveFront.h"
 
-std::vector<int>& WaveFront::genMap(MapData& map, int target_x, int target_y, int d)
+std::vector<int>& WaveFront::genMap(MapData& map, std::vector<int> &obsMap, int target_x, int target_y, int d)
 {
     int x, y;
     if (d == 0) //set up the vector
@@ -10,7 +10,7 @@ std::vector<int>& WaveFront::genMap(MapData& map, int target_x, int target_y, in
     }
     if (target_x < 0 || target_y < 0 || target_x >= map.width || target_y >= map.height)
         return waveMap;
-    if (map.obstacleMap[target_x + target_y*map.width] &&( map.obstacleMap[target_x + target_y*map.width] == 'W' || map.obstacleMap[target_x + target_y*map.width] == 'R'))
+    if (obsMap[target_x + target_y*map.width] &&( obsMap[target_x + target_y*map.width] == 'W' || obsMap[target_x + target_y*map.width] == 'R'))
         return waveMap;
 
     if (waveMap.at(target_x + target_y*map.width) == -1 || d < waveMap.at(target_x + target_y*map.width))
@@ -21,7 +21,7 @@ std::vector<int>& WaveFront::genMap(MapData& map, int target_x, int target_y, in
     for (x = target_x - 1; x <= target_x + 1; ++x)
     for (y = target_y - 1; y <= target_y + 1; ++y)
     {
-        genMap(map, x, y, d+1);
+        genMap(map, obsMap, x, y, d+1);
     }
     return waveMap;
 }

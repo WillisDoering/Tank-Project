@@ -6,5 +6,5 @@ class WaveFront
 {    
 public:
     std::vector<int> waveMap;
-    std::vector<int>& genMap(MapData& map, int target_x, int target_y, int d=0);
+    std::vector<int>& genMap(MapData& map, std::vector<int> &, int target_x, int target_y, int d=0);
 };

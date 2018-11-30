@@ -12,7 +12,9 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 #include <utility>
+#include <algorithm>
 #include "WaveFront.h"
 #include "HeatMap.h"
 using namespace std;
@@ -24,7 +26,8 @@ public:
 
     Archangel();
     ~Archangel();
-
+    
+    std::vector<int> obsMap;
     virtual direction move(MapData map, PositionData status);
     virtual direction attack(MapData map, PositionData status);
     virtual attributes setAttribute(int pointsAvailable, attributes baseStats);

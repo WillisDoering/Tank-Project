@@ -143,7 +143,17 @@ int Archangel::spendAP(MapData map, PositionData status)
     hostiles.resize(0);
     find_hostiles(map, status.game_x, status.game_y);
 
+    if (obsMap.empty())
+    {
+        obsMap.resize(map.obstacleMap.size());
+        std::fill(obsMap.begin(), obsMap.end(), 0);
+    }
 
+    for (int i = 0; i < map.obstacleMap.size(); ++i)
+    {
+        if (map.obstacleMap[i])
+            obsMap[i] = map.obstacleMap[i];
+    }
 
 
     if(!hm.getMap().size())
@@ -158,8 +168,30 @@ int Archangel::spendAP(MapData map, PositionData status)
         {
             hm.newMap(map,status);
             target = hm.whereTo();
+            while (map.obstacleMap[target.first+target.second*map.width] == 'R'
+                    || map.obstacleMap[target.first + target.second*map.width])
+            {
+                ++target.first;
+                if (target.first == map.width)
+                {
+                    target.first = 0;
+                    ++target.second;
+                    if (target.second == map.height)
+                        target.second=0;
+                }
+            }
         }
-        wf.genMap(map, target.first, target.second);
+        cout <<target.first << ' ' << target.second << '\n';
+        wf.genMap(map, obsMap, target.first, target.second);
+        for (int i = 0; i < map.height; ++i)
+        for (int j = 0; j < map.width; ++j)
+        {
+            if (j == 0)
+                cout << '\n';
+            cout << setw(4) << wf.waveMap[j + i*map.width];
+        }
+
+        cout << "\n\n";
         return 1;
     }
     else
@@ -169,7 +201,7 @@ int Archangel::spendAP(MapData map, PositionData status)
         pair<int, int> min_loc(0, 0);
         int x,y;
 
-        wf.genMap(map, status.game_x, status.game_y);
+        wf.genMap(map, obsMap, status.game_x, status.game_y);
 
         for (auto enemies : hostiles)
         {
@@ -240,7 +272,7 @@ int Archangel::spendAP(MapData map, PositionData status)
         else if (status.ap > 1)
         {
             cout << "MOVING INTO POSTION\n\n";
-            wf.genMap(map, min_loc.first, min_loc.second);
+            wf.genMap(map, obsMap, min_loc.first, min_loc.second);
             return 1;
         }
         else
@@ -253,7 +285,7 @@ int Archangel::spendAP(MapData map, PositionData status)
                     if (i-x && j-y && abs(i-x) != abs(j-y)) 
                     {
                         cout << i-x << ' ' << j-y << "\n\n";
-                        wf.genMap(map, i, j);
+                        wf.genMap(map, obsMap, i, j);
                         return 1;
                     }
                 }
