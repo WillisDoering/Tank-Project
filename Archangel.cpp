@@ -122,7 +122,7 @@ attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
     int difference;
 
     hm.setRadar(baseStats.tankRadar);
-    radar = baseStats.tankRadar;
+    radar = baseStats.tankRange;
     tank.tankAP = pointsAvailable;
     tank.tankDamage = 0;
     return tank;
