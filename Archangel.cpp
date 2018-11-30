@@ -118,7 +118,7 @@ direction Archangel::attack(MapData map, PositionData status)
  ****************************************************************************/
 attributes Archangel::setAttribute(int pointsAvailable, attributes baseStats)
 {
-    attributes tank (0,0,0,0,0);
+    attributes tank;
     int points;
     int difference;
 
@@ -178,7 +178,16 @@ int Archangel::spendAP(MapData map, PositionData status)
 {
     id = status.id;
     //Check for hostiles
+    hostiles.resize(0);
     find_hostiles(map, status.game_x, status.game_y);
+
+    cout <<"AP: " << status.ap << '\n';
+    for (auto h : hostiles)
+    {
+        cout << h.first << ' ' << h.second << endl;
+    }
+
+    cout << "\n\n";
 
 
     if(!hm.getMap().size())
@@ -199,7 +208,6 @@ int Archangel::spendAP(MapData map, PositionData status)
     }
     else
     {
-        cout << hostiles.back().first << ' ' << hostiles.back().second << endl;
         int min_dist = 0xFFFF;
         pair<int, int> min_loc(0, 0);
 
@@ -220,13 +228,14 @@ int Archangel::spendAP(MapData map, PositionData status)
             }
         }
 
-        if (min_dist == 0);// && status.ap > 1)
+        if (min_dist == 0 && status.ap > 1)
         {
+            //cout << "On point";
             get_danger(status);
-            cout << "ATTACK!" << endl;
             return 2;
         }
-        //else if( min_dist == 0 && status.ap == 1 )
+       
+        else if( min_dist == 0 && status.ap == 1 )
         {
             get_danger(status);
             switch (firing_arc[0])
@@ -260,6 +269,10 @@ int Archangel::spendAP(MapData map, PositionData status)
                     min_loc.second = status.game_y + 1;
                     break;
             };
+        }
+        else
+        {
+            return 1;
         }
 
         wf.genMap(map, min_loc.first, min_loc.second);
@@ -295,13 +308,12 @@ void Archangel::find_hostiles(const MapData & map, int x, int y)
     //Add all located tanks
     for (int i = 0; i < size; i++)
     {
-        /*cout << map.map[i];
+        cout << map.map[i];
         if (i%map.width == 0) 
-            cout << endl;*/
-        if (map.map[i] && abs(map.map[i]) != id)
+            cout << endl;
+        if (map.map[i] && map.map[i] != id && map.map[i] != -id)
         {
-            cout << endl << endl << i << "\n\n";
-            cout << map.width << "\n\n";
+    
             pair<int, int> temp(i % map.width, i / map.width);
             hostiles.push_back(temp);
         }
