@@ -170,8 +170,7 @@ int Archangel::spendAP(MapData map, PositionData status)
     find_hostiles(map, status.game_x, status.game_y);
 
     if(!hm.getMap().size())
-        hm.newMap(map, status);
-
+        hm.newMap(map, status))
     hm.update(map, status);
 
     if(!hostiles.size())
@@ -183,11 +182,6 @@ int Archangel::spendAP(MapData map, PositionData status)
     }
     else
     {
-        //Calculate 8 best spots
-        //If there, fire. If not, go there
-
-        //If we see them, wavefront ourselves and find spot mentioned above
-
         int min_dist = 0xFFFF;
         pair<int, int> min_loc(0, 0);
 

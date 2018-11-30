@@ -1,5 +1,4 @@
 *.o
 *testAll
 *.so
-config.txt
 results.txt
