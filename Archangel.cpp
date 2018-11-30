@@ -205,13 +205,14 @@ int Archangel::spendAP(MapData map, PositionData status)
 
         int x = hostiles[0].first;
         int y = hostiles[0].second;
+        wf.genMap(map, status.game_x, status.game_y);
 
         for (int i = -1; i < 2; ++i)
         {
             for (int j = -1; j < 2; ++j)
             {
-                if ((i || j) && x+i*radar < map.width && y+j*radar > map.height &&
-                    wf.waveMap[x+i*radar + (y+j*radar)*map.width] < min_dist)
+                    if ((i || j) && x+i*radar < map.width && y+j*radar < map.height &&
+                    x+i*radar >= 0 && y+j*radar >= 0 && wf.waveMap[x+i*radar + (y+j*radar)*map.width] < min_dist)
                 {
                     min_dist = wf.waveMap[x+i*radar + (y+j*radar)*map.width];
                     min_loc = pair<int, int>(x+i*radar, y+j*radar);
@@ -219,11 +220,46 @@ int Archangel::spendAP(MapData map, PositionData status)
             }
         }
 
-        if (min_loc == pair<int,int> (status.game_x, status.game_y))
+        if (min_dist == 0);// && status.ap > 1)
         {
-            cout << "Attack!!!!!" << endl;
             get_danger(status);
+            cout << "ATTACK!" << endl;
             return 2;
+        }
+        //else if( min_dist == 0 && status.ap == 1 )
+        {
+            get_danger(status);
+            switch (firing_arc[0])
+            {
+                case 1:
+                    min_loc.second = status.game_y + 1;
+                    break;
+                case 2:
+                    min_loc.first = status.game_x - 1;
+                    min_loc.second = status.game_y + 1;
+                    break;
+                case 3:
+                    min_loc.first = status.game_x -1;
+                    break;
+                case 4:
+                    min_loc.first = status.game_x - 1;
+                    min_loc.second = status.game_y - 1;
+                    break;
+                case 5:
+                    min_loc.second = status.game_y - 1;
+                    break;
+                case 6:
+                    min_loc.first = status.game_x + 1;
+                    min_loc.second = status.game_y - 1;
+                    break;
+                case 7:
+                    min_loc.first = status.game_x + 1;
+                    break;
+                case 8:
+                    min_loc.first = status.game_x + 1;
+                    min_loc.second = status.game_y + 1;
+                    break;
+            };
         }
 
         wf.genMap(map, min_loc.first, min_loc.second);
@@ -262,7 +298,7 @@ void Archangel::find_hostiles(const MapData & map, int x, int y)
         /*cout << map.map[i];
         if (i%map.width == 0) 
             cout << endl;*/
-        if (map.map[i] && map.map[i] != id)
+        if (map.map[i] && abs(map.map[i]) != id)
         {
             cout << endl << endl << i << "\n\n";
             cout << map.width << "\n\n";
