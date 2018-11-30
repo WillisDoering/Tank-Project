@@ -2,3 +2,5 @@
 *testAll
 *.so
 results.txt
+config.*
+!config.sample
